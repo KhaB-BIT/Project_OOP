@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OOP_Desktop
 {
-    public partial class MainChinh : Form
+    public partial class FormQuanLy : Form
     {
-        public MainChinh()
+        public FormQuanLy()
         {
             InitializeComponent();
         }

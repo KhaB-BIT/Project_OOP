@@ -16,7 +16,7 @@ namespace OOP_Desktop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainChinh());
+            Application.Run(new FormQuanLy());
         }
     }
 }
