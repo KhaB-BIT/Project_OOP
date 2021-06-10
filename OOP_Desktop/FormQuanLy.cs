@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace OOP_Desktop
 {
@@ -15,21 +17,10 @@ namespace OOP_Desktop
         public FormQuanLy()
         {
             InitializeComponent();
-        }
-
-        private void MainChinh_Load(object sender, EventArgs e)
-        {
 
         }
+        
 
-        private void button4_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
