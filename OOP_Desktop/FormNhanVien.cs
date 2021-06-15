@@ -16,5 +16,23 @@ namespace OOP_Desktop
         {
             InitializeComponent();
         }
+
+        //Các Event
+
+        #region Nhập thông tin Khách hàng
+
+        #endregion
+
+        #region Nhập số series hoặc mã SP
+
+        #endregion
+
+        #region In hóa linh
+
+        #endregion
+
+        #region Xuất hóa đơn
+
+        #endregion
     }
 }

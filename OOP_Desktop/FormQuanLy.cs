@@ -255,8 +255,12 @@ namespace OOP_Desktop
 
         #endregion
 
+        #region Event tìm kiếm nhân viên
+        #endregion
+
 
         // Event thêm, sửa xóa
+        #region Thêm, sửa, xóa Sách
         private void btnXoaSach_Click(object sender, EventArgs e)
         {
 
@@ -264,7 +268,7 @@ namespace OOP_Desktop
 
         private void btnSuaSach_Click(object sender, EventArgs e)
         {
-            if(btnSuaSach.Text == "Sửa")
+            if (btnSuaSach.Text == "Sửa")
             {
                 CellPrivous[0] = dataSach.CurrentCell.Value.ToString();
                 CellPrivous[1] = dataSach.CurrentCell.RowIndex;
@@ -272,14 +276,14 @@ namespace OOP_Desktop
                 dataSach.ReadOnly = false;
                 dataSach.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
                 btnSuaSach.Text = "Hủy";
-            }    
+            }
             else
             {
                 dataSach.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[2]].Value = CellPrivous[0];
                 dataSach.ReadOnly = true;
                 btnSuaSach.Text = "Sửa";
-            }    
-            
+            }
+
         }
 
         private void dataSach_CellLeave(object sender, DataGridViewCellEventArgs e)
@@ -289,17 +293,31 @@ namespace OOP_Desktop
             {
                 btnSuaSach.Text = "Sửa";
                 MessageBoxButtons button = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show("Bạn có muốn lưu thay đổi", "BookSmart" ,button);
+                DialogResult result = MessageBox.Show("Bạn có muốn lưu thay đổi", "BookSmart", button);
                 if (result == DialogResult.Yes)
                 {
                     string query = "UPDATE dbo.SanPham SET ";
-                    query += Sach.Field()[(int)CellPrivous[2] - 1] + " = N'" + (string)CellPrivous[0] + "' Where " + Sach.Field()[0] + " = N'" + dataSach.Rows[(int)CellPrivous[2]].Cells[1].Value.ToString() +"'";
+                    query += Sach.Field()[(int)CellPrivous[2] - 1] + " = N'" + (string)CellPrivous[0] + "' Where " + Sach.Field()[0] + " = N'" + dataSach.Rows[(int)CellPrivous[2]].Cells[1].Value.ToString() + "'";
                     SQLConnector.ExcuteQuery(query);
                     dataSach.DataSource = SQLConnector.Select(Sach.Query);
                 }
                 else dataSach.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[2]].Value = CellPrivous[0];
-            }    
-            
+            }
+
         }
+        #endregion
+
+        #region Thêm, sửa xóa Khách hàng
+
+        #endregion
+
+        #region Thêm, sửa xóa Nhân Viên
+
+        #endregion
+
+
+
+
+
     }
 }
