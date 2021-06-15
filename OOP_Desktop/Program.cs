@@ -18,5 +18,7 @@ namespace OOP_Desktop
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormQuanLy());
         }
+
+
     }
 }
