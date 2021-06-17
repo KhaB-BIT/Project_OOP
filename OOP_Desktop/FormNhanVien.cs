@@ -77,18 +77,13 @@ namespace OOP_Desktop
                 if (videoCaptureDevice.IsRunning)
                     videoCaptureDevice.Stop();
         }
-
+        int i = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Interval = 1000;
-            //if (videoCaptureDevice.IsRunning)
-            //{
-            //    lbDevices.Text = "Active";
-            //    lbDevices.ForeColor = Color.Lime;
-            //}
+            timer1.Interval = 100;
             if (bitmap != null)
             {
-
+                
                 lbDevices.Text = "Active";
                 lbDevices.ForeColor = Color.Lime;
                 BarcodeReader reader = new BarcodeReader();
@@ -101,7 +96,10 @@ namespace OOP_Desktop
                         {
                             hi = SQLConnector.Select(Sach.Query + " where Series = '" + result.ToString() + "'").Tables[0];
                         }
-                        else hi.ImportRow(SQLConnector.Select(Sach.Query + " where Series = '" + result.ToString() + "'").Tables[0].Rows[0]);
+                        else
+                        {
+                            hi.ImportRow(SQLConnector.Select(Sach.Query + " where Series = '" + result.ToString() + "'").Tables[0].Rows[0]);
+                        }
                         dataHoaDon.DataSource = hi;
                         timer1.Interval = 3000;
                         txtCheck.Invoke(new MethodInvoker(delegate ()
@@ -113,12 +111,12 @@ namespace OOP_Desktop
                     { }
                 }    
             }
-            else
-            {
-                lbDevices.Text = "Error";
-                lbDevices.ForeColor = Color.OrangeRed;
-            }
+        }
 
+        //Tạo thứ tự cho bảng------------------
+        private void dataHoaDon_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            this.dataHoaDon.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
         }
     }
 }
