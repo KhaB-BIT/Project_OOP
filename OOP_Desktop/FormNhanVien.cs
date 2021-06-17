@@ -68,7 +68,7 @@ namespace OOP_Desktop
         
         private void VideoCaptureDevice_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
-            bitmap = (Bitmap)eventArgs.Frame.Clone();
+            ptbCheck.Image = (Bitmap)eventArgs.Frame.Clone();
         }
 
         private void FormNhanVien_FormClosing(object sender, FormClosingEventArgs e)
@@ -81,13 +81,11 @@ namespace OOP_Desktop
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Interval = 100;
-            if (bitmap != null)
+            if (ptbCheck.Image != null)
             {
                 
-                lbDevices.Text = "Active";
-                lbDevices.ForeColor = Color.Lime;
                 BarcodeReader reader = new BarcodeReader();
-                var result = reader.Decode((Bitmap)bitmap);
+                var result = reader.Decode((Bitmap)ptbCheck.Image);
                 if (result != null)
                 {
                     try
@@ -117,6 +115,14 @@ namespace OOP_Desktop
         private void dataHoaDon_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             this.dataHoaDon.Rows[e.RowIndex].HeaderCell.Value = (e.RowIndex + 1).ToString();
+        }
+
+        private void cbbDevices_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (videoCaptureDevice != null)
+                if (videoCaptureDevice.IsRunning)
+                    videoCaptureDevice.Stop();
+            BarCodeFunc();
         }
     }
 }
