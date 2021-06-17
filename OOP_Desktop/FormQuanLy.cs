@@ -23,10 +23,10 @@ namespace OOP_Desktop
 
         //Khai báo biến--------------------------------------
         #region Khai báo biến
-        BookSmart Sach = new BookSmart("Select MaSach as 'Mã sách', Series as 'Series', MaTL as 'Mã thể loại', TenSach as 'Tên sách', SoLuong as 'Số lượng', GiaBan as 'Giá bán' from dbo.SanPham");
-        BookSmart KH = new BookSmart("Select MaKH as 'Mã KH', TenKH as 'Tên khách hàng', GioiTinh as 'Giới tính', Phone as 'SĐT', DiaChi as 'Địa chỉ', Email from dbo.KhachHang");
-        BookSmart NV = new BookSmart("Select MaNV as 'Mã NV', TenNV as 'Tên nhân viên', TaiKhoan as 'Tài khoản', MatKhau as 'Mật khẩu', Phone as 'SĐT', DiaChi as 'Địa chỉ' from dbo.NhanVien");
-        SQL SQLConnector = new SQL(@"Data Source=BI\SQLEXPRESS;Initial Catalog=SQL_EndOfTerm;Integrated Security=True");
+        internal BookSmart Sach = new BookSmart("Select MaSach as 'Mã sách', Series as 'Series', MaTL as 'Mã thể loại', TenSach as 'Tên sách', SoLuong as 'Số lượng', GiaBan as 'Giá bán' from dbo.SanPham");
+        internal BookSmart KH = new BookSmart("Select MaKH as 'Mã KH', TenKH as 'Tên khách hàng', GioiTinh as 'Giới tính', Phone as 'SĐT', DiaChi as 'Địa chỉ', Email from dbo.KhachHang");
+        internal BookSmart NV = new BookSmart("Select MaNV as 'Mã NV', TenNV as 'Tên nhân viên', TaiKhoan as 'Tài khoản', MatKhau as 'Mật khẩu', Phone as 'SĐT', DiaChi as 'Địa chỉ' from dbo.NhanVien");
+        internal SQL SQLConnector = new SQL(@"Data Source=BI\SQLEXPRESS;Initial Catalog=SQL_EndOfTerm;Integrated Security=True");
         object[] CellPrivous= new object[3];
         #endregion
 
@@ -119,11 +119,57 @@ namespace OOP_Desktop
         }
         #endregion
 
+        public void XoaDuLieu(BookSmart varible, DataGridView data)
+        {
+            CellPrivous[1] = data.CurrentCell.RowIndex;
+            MessageBoxButtons button = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show("Bạn có muốn xóa dòng đã chọn", "BookSmart", button);
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    string query = varible.DeleteQuery(data.Rows[(int)CellPrivous[1]].Cells[1].Value.ToString());
+                    SQLConnector.ExcuteQuery(query);
+                    data.Rows.RemoveAt((int)CellPrivous[1]);
+                    MessageBox.Show("Thao tác đã được thực hiện");
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Không thành công");
+                }
+            }
+        }
+
+        public void SuaDuLieu(BookSmart varible, DataGridView data)
+        {
+            if ((string)CellPrivous[0] != data.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[2]].Value.ToString())
+            {
+                MessageBoxButtons button = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show("Bạn có muốn lưu thay đổi", "BookSmart", button);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        string query = varible.EditQuery(data.Rows[(int)CellPrivous[1]].Cells[1].Value.ToString(), varible.Field()[(int)CellPrivous[2] - 1], data.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[2]].Value.ToString());
+                        SQLConnector.ExcuteQuery(query);
+                        MessageBox.Show("Thao tác đã được thực hiện");
+                    }
+                    catch (SqlException)
+                    {
+                        MessageBox.Show("Không thành công");
+                    }
+
+                }
+                else data.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[2]].Value = CellPrivous[0];
+            }
+        }
+
         //Các event chức năng của Form-------------------------
         public void formQlySPLoad()
         {
             txtKhachHang.Text = SQLConnector.Count("dbo.KhachHang").ToString();
             txtDoanhThu.Text = "VNĐ";
+            //txtCheck.Text = Sach.DeleteQuery("MS001");
         }
 
         //Event khi chuyển giữa các chức năng
@@ -261,9 +307,17 @@ namespace OOP_Desktop
 
         // Event thêm, sửa xóa
         #region Thêm, sửa, xóa Sách
+        private void btnThemSach_Click(object sender, EventArgs e)
+        {
+            FormThemSach formThemSach = new FormThemSach(this);
+            formThemSach.Show();
+            dataSach.ClearSelection();
+            dataSach.Rows[dataSach.RowCount - 1].Selected = true;
+
+        }
         private void btnXoaSach_Click(object sender, EventArgs e)
         {
-
+            XoaDuLieu(Sach, dataSach); 
         }
 
         private void btnSuaSach_Click(object sender, EventArgs e)
@@ -274,6 +328,8 @@ namespace OOP_Desktop
                 CellPrivous[1] = dataSach.CurrentCell.RowIndex;
                 CellPrivous[2] = dataSach.CurrentCell.ColumnIndex;
                 dataSach.ReadOnly = false;
+                dataSach.Columns[1].ReadOnly = true;
+                dataSach.Columns[0].ReadOnly = true;
                 dataSach.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
                 btnSuaSach.Text = "Hủy";
             }
@@ -286,38 +342,138 @@ namespace OOP_Desktop
 
         }
 
+        private void dataSach_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            dataSach.ReadOnly = true;
+            if (btnSuaSach.Text == "Hủy")
+            {
+                btnSuaSach.Text = "Sửa";
+                SuaDuLieu(Sach, dataSach);
+            }
+        }
         private void dataSach_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
             dataSach.ReadOnly = true;
             if (btnSuaSach.Text == "Hủy")
             {
                 btnSuaSach.Text = "Sửa";
-                MessageBoxButtons button = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show("Bạn có muốn lưu thay đổi", "BookSmart", button);
-                if (result == DialogResult.Yes)
-                {
-                    string query = "UPDATE dbo.SanPham SET ";
-                    query += Sach.Field()[(int)CellPrivous[2] - 1] + " = N'" + (string)CellPrivous[0] + "' Where " + Sach.Field()[0] + " = N'" + dataSach.Rows[(int)CellPrivous[2]].Cells[1].Value.ToString() + "'";
-                    SQLConnector.ExcuteQuery(query);
-                    dataSach.DataSource = SQLConnector.Select(Sach.Query);
-                }
-                else dataSach.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[2]].Value = CellPrivous[0];
+                SuaDuLieu(Sach, dataSach);
             }
-
         }
         #endregion
 
         #region Thêm, sửa xóa Khách hàng
+        private void btnThemKH_Click(object sender, EventArgs e)
+        {
+            FormThemKhachHang formKH = new FormThemKhachHang(this);
+            formKH.Show();
+        }
+
+        private void btnSuaKH_Click(object sender, EventArgs e)
+        {
+            if (btnSuaKH.Text == "Sửa")
+            {
+                CellPrivous[0] = dataKH.CurrentCell.Value.ToString();
+                CellPrivous[1] = dataKH.CurrentCell.RowIndex;
+                CellPrivous[2] = dataKH.CurrentCell.ColumnIndex;
+                dataKH.ReadOnly = false;
+                dataKH.Columns[1].ReadOnly = true;
+                dataKH.Columns[0].ReadOnly = true;
+                dataKH.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+                btnSuaKH.Text = "Hủy";
+            }
+            else
+            {
+                dataKH.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[2]].Value = CellPrivous[0];
+                dataKH.ReadOnly = true;
+                btnSuaKH.Text = "Sửa";
+            }
+        }
+
+        private void btnXoaKH_Click(object sender, EventArgs e)
+        {
+            XoaDuLieu(KH, dataKH);
+        }
+
+        private void dataKH_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            dataKH.ReadOnly = true;
+            if (btnSuaKH.Text == "Hủy")
+            {
+                btnSuaKH.Text = "Sửa";
+                SuaDuLieu(KH, dataKH);
+            }
+        }
+
+        private void dataKH_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            dataKH.ReadOnly = true;
+            if (btnSuaKH.Text == "Hủy")
+            {
+                btnSuaKH.Text = "Sửa";
+                SuaDuLieu(KH, dataKH);
+            }
+        }
+
 
         #endregion
 
         #region Thêm, sửa xóa Nhân Viên
+        private void btnThemNV_Click(object sender, EventArgs e)
+        {
+            FormThemNhanVien formNV = new FormThemNhanVien(this);
+            formNV.Show();
+        }
+
+        private void btnSuaNV_Click(object sender, EventArgs e)
+        {
+            if (btnSuaNV.Text == "Sửa")
+            {
+                CellPrivous[0] = dataNV.CurrentCell.Value.ToString();
+                CellPrivous[1] = dataNV.CurrentCell.RowIndex;
+                CellPrivous[2] = dataNV.CurrentCell.ColumnIndex;
+                dataNV.ReadOnly = false;
+                dataNV.Columns[1].ReadOnly = true;
+                dataNV.Columns[0].ReadOnly = true;
+                dataNV.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+                btnSuaNV.Text = "Hủy";
+            }
+            else
+            {
+                dataNV.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[2]].Value = CellPrivous[0];
+                dataNV.ReadOnly = true;
+                btnSuaNV.Text = "Sửa";
+            }
+        }
+
+        private void btnXoaNV_Click(object sender, EventArgs e)
+        {
+            XoaDuLieu(NV, dataNV);
+        }
+
+        private void dataNV_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            dataNV.ReadOnly = true;
+            if (btnSuaNV.Text == "Hủy")
+            {
+                btnSuaNV.Text = "Sửa";
+                SuaDuLieu(NV, dataNV);
+            }
+        }
+
+        private void dataNV_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            dataNV.ReadOnly = true;
+            if (btnSuaNV.Text == "Hủy")
+            {
+                btnSuaNV.Text = "Sửa";
+                SuaDuLieu(NV, dataNV);
+            }
+        }
+
 
         #endregion
 
-
-
-
-
+        
     }
 }

@@ -45,6 +45,22 @@ namespace OOP_Desktop
             return main;
         }
 
+        public string TableName()
+        {
+            return query.Substring(query.IndexOf("dbo."), query.Length - query.IndexOf("dbo."));
+        }
+
+        public string DeleteQuery(string value)
+        {
+            string txt = "Delete " + TableName() + " where " + Field()[0] + " = N'";
+
+            return txt + value + "'";
+        }
+        public string EditQuery(string primary,string varible, string value)
+        {
+            return "UPDATE " + TableName() + " SET " + varible + " = N'" + value + "' Where " + Field()[0] + " = N'" + primary + "'";
+        }
+
         public string SearchQuery(string txtbox)
         {
             string txt = Query + "Where ";

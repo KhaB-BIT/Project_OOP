@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace OOP_Desktop
 {
@@ -18,6 +19,19 @@ namespace OOP_Desktop
         private string sQLlink;
 
         public string SQLlink { get => sQLlink; set => sQLlink = value; }
+
+        public string MotGiaTri(string query)
+        {
+            string data = "";
+            using (SqlConnection connection = new SqlConnection(this.SQLlink))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                data = (string)command.ExecuteScalar();
+                connection.Close();
+            }
+            return data;
+        }
 
         public DataSet Select(string query)
         {
@@ -33,7 +47,7 @@ namespace OOP_Desktop
             return data;
         }
 
-        //Đang fix
+
         public void ExcuteQuery(string query)
         {
             using (SqlConnection connection = new SqlConnection(this.SQLlink))
