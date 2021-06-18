@@ -36,30 +36,30 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNhanVien));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.txtCheck = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.cbbDevices = new System.Windows.Forms.ComboBox();
             this.btnNhapMaSP = new System.Windows.Forms.Button();
             this.btnXoaSP = new System.Windows.Forms.Button();
             this.btnXuatHoaDon = new System.Windows.Forms.Button();
             this.btnSdtKH = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtMaSP = new System.Windows.Forms.TextBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.dataHoaDon = new System.Windows.Forms.DataGridView();
-            this.ptbCheck = new System.Windows.Forms.PictureBox();
             this.txtThanhTien = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txtSoDienThoai = new System.Windows.Forms.TextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnNhapSDT = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.ptbCheck = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dataHoaDon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbCheck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataHoaDon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbCheck)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -79,15 +79,6 @@
             this.txtCheck.Name = "txtCheck";
             this.txtCheck.Size = new System.Drawing.Size(245, 20);
             this.txtCheck.TabIndex = 50;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
-            this.pictureBox2.Location = new System.Drawing.Point(314, 666);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(269, 39);
-            this.pictureBox2.TabIndex = 51;
-            this.pictureBox2.TabStop = false;
             // 
             // cbbDevices
             // 
@@ -126,6 +117,9 @@
             // 
             // btnXoaSP
             // 
+            this.btnXoaSP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXoaSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
             this.btnXoaSP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnXoaSP.FlatAppearance.BorderSize = 0;
@@ -172,19 +166,6 @@
             this.btnSdtKH.Text = "Thêm khách hàng mới";
             this.btnSdtKH.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = global::OOP_Desktop.Properties.Resources.FinalPng;
-            this.pictureBox1.InitialImage = global::OOP_Desktop.Properties.Resources.FinalPng;
-            this.pictureBox1.Location = new System.Drawing.Point(29, 29);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 121);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 43;
-            this.pictureBox1.TabStop = false;
-            // 
             // txtMaSP
             // 
             this.txtMaSP.AccessibleDescription = "";
@@ -199,21 +180,15 @@
             this.txtMaSP.TabIndex = 41;
             this.txtMaSP.Text = "Nhập mã sản phẩm hoặc series";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
-            this.pictureBox5.Location = new System.Drawing.Point(302, 111);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(298, 39);
-            this.pictureBox5.TabIndex = 42;
-            this.pictureBox5.TabStop = false;
-            // 
             // dataHoaDon
             // 
             this.dataHoaDon.AllowUserToAddRows = false;
             this.dataHoaDon.AllowUserToDeleteRows = false;
             this.dataHoaDon.AllowUserToResizeColumns = false;
             this.dataHoaDon.AllowUserToResizeRows = false;
+            this.dataHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataHoaDon.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dataHoaDon.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
@@ -260,18 +235,12 @@
             this.dataHoaDon.TabIndex = 40;
             this.dataHoaDon.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataHoaDon_RowsAdded);
             // 
-            // ptbCheck
-            // 
-            this.ptbCheck.Location = new System.Drawing.Point(314, 478);
-            this.ptbCheck.Name = "ptbCheck";
-            this.ptbCheck.Size = new System.Drawing.Size(269, 166);
-            this.ptbCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.ptbCheck.TabIndex = 52;
-            this.ptbCheck.TabStop = false;
-            // 
             // txtThanhTien
             // 
             this.txtThanhTien.AccessibleDescription = "";
+            this.txtThanhTien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtThanhTien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(242)))));
             this.txtThanhTien.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtThanhTien.Font = new System.Drawing.Font("r0c0i Linotte", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -283,15 +252,6 @@
             this.txtThanhTien.TabIndex = 53;
             this.txtThanhTien.Text = "VNĐ";
             this.txtThanhTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(242)))));
-            this.pictureBox3.Location = new System.Drawing.Point(1274, 836);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(298, 39);
-            this.pictureBox3.TabIndex = 54;
-            this.pictureBox3.TabStop = false;
             // 
             // txtSoDienThoai
             // 
@@ -306,15 +266,6 @@
             this.txtSoDienThoai.Size = new System.Drawing.Size(274, 23);
             this.txtSoDienThoai.TabIndex = 55;
             this.txtSoDienThoai.Text = "Nhập số điện thoại khách hàng";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
-            this.pictureBox4.Location = new System.Drawing.Point(302, 193);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(298, 39);
-            this.pictureBox4.TabIndex = 56;
-            this.pictureBox4.TabStop = false;
             // 
             // btnNhapSDT
             // 
@@ -334,6 +285,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("r0c0i Linotte", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
@@ -342,6 +296,67 @@
             this.label1.Size = new System.Drawing.Size(132, 25);
             this.label1.TabIndex = 58;
             this.label1.Text = "THÀNH TIỀN";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
+            this.pictureBox4.Location = new System.Drawing.Point(302, 193);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(298, 39);
+            this.pictureBox4.TabIndex = 56;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(58)))), ((int)(((byte)(242)))));
+            this.pictureBox3.Location = new System.Drawing.Point(1274, 836);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(298, 39);
+            this.pictureBox3.TabIndex = 54;
+            this.pictureBox3.TabStop = false;
+            // 
+            // ptbCheck
+            // 
+            this.ptbCheck.Location = new System.Drawing.Point(314, 478);
+            this.ptbCheck.Name = "ptbCheck";
+            this.ptbCheck.Size = new System.Drawing.Size(269, 166);
+            this.ptbCheck.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.ptbCheck.TabIndex = 52;
+            this.ptbCheck.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
+            this.pictureBox2.Location = new System.Drawing.Point(314, 666);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(269, 39);
+            this.pictureBox2.TabIndex = 51;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.Image = global::OOP_Desktop.Properties.Resources.FinalPng;
+            this.pictureBox1.InitialImage = global::OOP_Desktop.Properties.Resources.FinalPng;
+            this.pictureBox1.Location = new System.Drawing.Point(29, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(135, 121);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 43;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
+            this.pictureBox5.Location = new System.Drawing.Point(302, 111);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(298, 39);
+            this.pictureBox5.TabIndex = 42;
+            this.pictureBox5.TabStop = false;
             // 
             // FormNhanVien
             // 
@@ -376,13 +391,13 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormNhanVien_FormClosing);
             this.Load += new System.EventHandler(this.FormNhanVien_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataHoaDon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbCheck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataHoaDon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbCheck)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
