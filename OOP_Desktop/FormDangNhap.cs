@@ -31,6 +31,7 @@ namespace OOP_Desktop
             try
             {
                 object main = SQLConnector.MotGiaTri("Select MatKhau from dbo.Admin where TaiKhoan = N'" + txtTaiKhoan.Text + "'");
+                object main2 = SQLConnector.MotGiaTri("Select MatKhau from dbo.NhanVien where TaiKhoan = N'" + txtTaiKhoan.Text + "'");
                 if (main != null)
                 {
                     if (txtMatKhau.Text == main.ToString())
@@ -39,16 +40,17 @@ namespace OOP_Desktop
                         formQL.Show();
                         this.Hide();
                     }
-                    else
+                    
+                }
+                else if (main2 != null)
+                {
+                    if (txtMatKhau.Text == main.ToString())
                     {
-                        if (txtMatKhau.Text == main.ToString())
-                        {
-                            FormNhanVien formNV = new FormNhanVien(this);
-                            formNV.Show();
-                            this.Hide();
-                        }
-                        else MessageBox.Show("Tài khoản hoặc Mật khẩu không chính xác");
+                        FormNhanVien formNV = new FormNhanVien(this);
+                        formNV.Show();
+                        this.Hide();
                     }
+                    else MessageBox.Show("Mật khẩu không chính xác");
                 }
                 else MessageBox.Show("Tài khoản không tồn tại");       
             }
