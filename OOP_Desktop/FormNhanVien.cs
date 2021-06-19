@@ -51,8 +51,8 @@ namespace OOP_Desktop
             txtDate.Text = date.ToString("yyyy-MM-dd");
 
             //Thông tin nhân viên
-            txtMaNV.Text = SQLConnector.MotGiaTri<string>("Select MaNV from dbo.NhanVien where TaiKhoan =N'" + formDangNhap.txtTaiKhoan.Text + "'");
-            txtTenNV.Text = SQLConnector.MotGiaTri<string>("Select TenNV from dbo.NhanVien where TaiKhoan =N'" + formDangNhap.txtTaiKhoan.Text+"'");
+            txtMaNV.Text = SQLConnector.MotGiaTri("Select MaNV from dbo.NhanVien where TaiKhoan =N'" + formDangNhap.txtTaiKhoan.Text + "'").ToString();
+            txtTenNV.Text = SQLConnector.MotGiaTri("Select TenNV from dbo.NhanVien where TaiKhoan =N'" + formDangNhap.txtTaiKhoan.Text+"'").ToString();
             
         }
 
@@ -85,10 +85,10 @@ namespace OOP_Desktop
         {
             try
             {
-                if (SQLConnector.MotGiaTri<string>("Select TenKH from dbo.KhachHang where Phone =N'" + txtSoDienThoai.Text + "'") != null)
+                if (SQLConnector.MotGiaTri("Select TenKH from dbo.KhachHang where Phone =N'" + txtSoDienThoai.Text + "'") != null)
                 {
-                    txtMaKH.Text = SQLConnector.MotGiaTri<string>("Select MaKH from dbo.KhachHang where Phone =N'" + txtSoDienThoai.Text + "'");
-                    txtTenKH.Text = SQLConnector.MotGiaTri<string>("Select TenKH from dbo.KhachHang where Phone =N'" + txtSoDienThoai.Text + "'");
+                    txtMaKH.Text = SQLConnector.MotGiaTri("Select MaKH from dbo.KhachHang where Phone =N'" + txtSoDienThoai.Text + "'").ToString();
+                    txtTenKH.Text = SQLConnector.MotGiaTri("Select TenKH from dbo.KhachHang where Phone =N'" + txtSoDienThoai.Text + "'").ToString();
                 }
                 else MessageBox.Show("Không tìm thấy");
             }
@@ -110,9 +110,9 @@ namespace OOP_Desktop
         {
             try
             {
-                if (SQLConnector.MotGiaTri<string>(Sach.Query + " where Series = '" + txtMaSP.Text + "'") != null)
+                if (SQLConnector.MotGiaTri(Sach.Query + " where Series = '" + txtMaSP.Text + "'") != null)
                 {
-                    int check = (int)SQLConnector.MotGiaTri<int>("Select SoLuong from dbo.SanPham" + " where Series = '" + txtMaSP.Text + "'");
+                    int check = int.Parse(SQLConnector.MotGiaTri("Select SoLuong from dbo.SanPham" + " where Series = '" + txtMaSP.Text + "'").ToString());
                     if(check > 0)
                     {
                         if (hi == null)
@@ -129,7 +129,8 @@ namespace OOP_Desktop
                         }
                         else
                         {
-                            string checkSP = SQLConnector.MotGiaTri<string>("Select MaSach from dbo.SanPham" + " where Series = '" + txtMaSP.Text + "'");
+                            //Kiểm tra SP trùng
+                            string checkSP = SQLConnector.MotGiaTri("Select MaSach from dbo.SanPham" + " where Series = '" + txtMaSP.Text + "'").ToString();
                             bool checkbool = true;
                             for (int i = 0; i < dataHoaDon.Rows.Count; i++)
                             {
@@ -140,6 +141,7 @@ namespace OOP_Desktop
                                     {
                                         MessageBox.Show("Không đủ số lượng sản phẩm");
                                         dataHoaDon.Rows[i].Cells[3].Value = "1";
+                                        ThanhTien();
                                     }
                                     checkbool = false;
                                     break;
@@ -226,9 +228,9 @@ namespace OOP_Desktop
                     }));
                     try
                     {
-                        if (SQLConnector.MotGiaTri<string>(Sach.Query + " where Series = '" + result.ToString() + "'") != null)
+                        if (SQLConnector.MotGiaTri(Sach.Query + " where Series = '" + result.ToString() + "'") != null)
                         {
-                            int check = (int)SQLConnector.MotGiaTri<int>("Select SoLuong from dbo.SanPham" + " where Series = '" + result.ToString() + "'");
+                            int check = int.Parse(SQLConnector.MotGiaTri("Select SoLuong from dbo.SanPham" + " where Series = '" + result.ToString() + "'").ToString());
                             if (check > 0)
                             {
                                 if (hi == null)
@@ -245,7 +247,7 @@ namespace OOP_Desktop
                                 }
                                 else
                                 {
-                                    string checkSP = SQLConnector.MotGiaTri<string>("Select MaSach from dbo.SanPham" + " where Series = '" + result.ToString() + "'");
+                                    string checkSP = SQLConnector.MotGiaTri("Select MaSach from dbo.SanPham" + " where Series = '" + result.ToString() + "'").ToString();
                                     bool checkbool = true;
                                     for (int i = 0; i < dataHoaDon.Rows.Count; i++)
                                     {
@@ -256,6 +258,7 @@ namespace OOP_Desktop
                                             {
                                                 MessageBox.Show("Không đủ số lượng sản phẩm");
                                                 dataHoaDon.Rows[i].Cells[3].Value = "1";
+                                                ThanhTien();
                                             }
                                             checkbool = false;
                                             break;
@@ -334,7 +337,7 @@ namespace OOP_Desktop
         {
             string query = "Select SoLuong from dbo.SanPham" + " where MaSach = '" + dataHoaDon.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[1]].Value + "'";
             int check = int.Parse(dataHoaDon.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[2]].Value.ToString());
-            if (SQLConnector.MotGiaTri<int>(query) >= check)
+            if (int.Parse(SQLConnector.MotGiaTri(query).ToString()) >= check)
             {
                 Total = 0;
                 for (int i = 0; i < dataHoaDon.Rows.Count; i++)
@@ -349,7 +352,6 @@ namespace OOP_Desktop
             {
                 dataHoaDon.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[2]].Value = "1";
                 MessageBox.Show("Không còn đủ số lượng sản phẩm");
-
             }
             
         }

@@ -20,19 +20,27 @@ namespace OOP_Desktop
 
         public string SQLlink { get => sQLlink; set => sQLlink = value; }
 
-        public T MotGiaTri<T>(string query)
+        public object MotGiaTri(string query)
         {
-            T data;
-
+            object data =null;
+            try
+            {
                 using (SqlConnection connection = new SqlConnection(this.SQLlink))
                 {
                     connection.Open();
                     SqlCommand command = new SqlCommand(query, connection);
-                    data = (T)command.ExecuteScalar();
+                    data = command.ExecuteScalar();
                     connection.Close();
                 }
+            }
+            catch(Exception)
+            {
+
+            }       
             return data;
         }
+
+
 
         public DataSet Select(string query)
         {

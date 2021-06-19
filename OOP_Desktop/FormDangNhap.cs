@@ -18,8 +18,7 @@ namespace OOP_Desktop
 
         public FormDangNhap()
         {
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         internal void ResetTxt()
@@ -31,22 +30,27 @@ namespace OOP_Desktop
         {
             try
             {
-                if (txtMatKhau.Text == SQLConnector.MotGiaTri<string>("Select MatKhau from dbo.Admin where TaiKhoan = N'" + txtTaiKhoan.Text + "'"))
+                object main = SQLConnector.MotGiaTri("Select MatKhau from dbo.Admin where TaiKhoan = N'" + txtTaiKhoan.Text + "'");
+                if (main != null)
                 {
-                    FormQuanLy formQL = new FormQuanLy(this);
-                    formQL.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    if (txtMatKhau.Text == SQLConnector.MotGiaTri<string>("Select MatKhau from dbo.NhanVien where TaiKhoan = N'" + txtTaiKhoan.Text + "'"))
+                    if (txtMatKhau.Text == main.ToString())
                     {
-                        FormNhanVien formNV = new FormNhanVien(this);
-                        formNV.Show();
+                        FormQuanLy formQL = new FormQuanLy(this);
+                        formQL.Show();
                         this.Hide();
                     }
-                    else MessageBox.Show("Tài khoản hoặc Mật khẩu không chính xác");
+                    else
+                    {
+                        if (txtMatKhau.Text == main.ToString())
+                        {
+                            FormNhanVien formNV = new FormNhanVien(this);
+                            formNV.Show();
+                            this.Hide();
+                        }
+                        else MessageBox.Show("Tài khoản hoặc Mật khẩu không chính xác");
+                    }
                 }
+                else MessageBox.Show("Tài khoản không tồn tại");       
             }
             catch(Exception)
             {
