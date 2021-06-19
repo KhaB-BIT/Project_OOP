@@ -14,12 +14,16 @@ namespace OOP_Desktop
 {
     public partial class FormQuanLy : Form
     {
-        public FormQuanLy()
+        public FormQuanLy(FormDangNhap fdn)
         {
             InitializeComponent();
             formQlySPLoad();
+            this.formDangNhap = fdn;
             
         }
+
+        FormDangNhap formDangNhap;
+
 
         //Khai báo biến--------------------------------------
         #region Khai báo biến
@@ -31,7 +35,7 @@ namespace OOP_Desktop
         #endregion
 
         //Các hàm chức năng------------------------------------
-        #region Hàm chức năng
+        #region Hàm hiệu ứng
         //Hàm chuyển đổi màu button
         public void ChangebtnEffect(string btn)
         {
@@ -210,7 +214,10 @@ namespace OOP_Desktop
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            ChangebtnEffect("btnDangXuat"); 
+            ChangebtnEffect("btnDangXuat");
+            formDangNhap = new FormDangNhap();
+            formDangNhap.Show();
+            this.Close();
         }
         #endregion
 
@@ -472,8 +479,12 @@ namespace OOP_Desktop
         }
 
 
+
         #endregion
 
-        
+        private void FormQuanLy_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

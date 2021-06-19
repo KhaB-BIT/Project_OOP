@@ -1005,6 +1005,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lý bán sách";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormQuanLy_FormClosing);
             this.pnlDashboard.ResumeLayout(false);
             this.pnlDashboard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace OOP_Desktop
 {
-    public partial class Form1 : Form
+    public partial class FormXemChiTiet : Form
     {
-        public Form1()
+        public FormXemChiTiet()
         {
             InitializeComponent();
         }

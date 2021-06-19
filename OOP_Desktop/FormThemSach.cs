@@ -32,7 +32,7 @@ namespace OOP_Desktop
         {
             try
             {
-                string MaTL = FormPrivious.SQLConnector.MotGiaTri("Select MaTL from dbo.TheLoaiSach where TenTL =N'" + cbbTheLoai.Text + "'");
+                string MaTL = FormPrivious.SQLConnector.MotGiaTri<string>("Select MaTL from dbo.TheLoaiSach where TenTL =N'" + cbbTheLoai.Text + "'");
                 FormPrivious.SQLConnector.ExcuteQuery("Insert dbo.SanPham Values (N'" + txtSeries.Text + "',N'" + MaTL
                     + "',N'" + txtTenSach.Text + "',N'" + txtSoLuong.Text + "',N'" + txtGiaBan.Text + "',N'" + txtGiaNhap.Text + "')");
                 MessageBox.Show("Thao tác được thực hiện");

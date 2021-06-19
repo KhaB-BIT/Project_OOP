@@ -19,18 +19,35 @@ namespace OOP_Desktop
             InitializeComponent();
             this.FormPrivious = ql;
         }
+        public FormThemKhachHang(FormNhanVien ql)
+        {
+            InitializeComponent();
+            this.FormPrivious2 = ql;
+        }
 
-        FormQuanLy FormPrivious;
+        FormQuanLy FormPrivious =null;
+        FormNhanVien FormPrivious2 = null;
 
         private void btnThem_Click(object sender, EventArgs e)
         {
             try
             {
-                FormPrivious.SQLConnector.ExcuteQuery("Insert dbo.KhachHang Values (N'" + txtTenKH.Text + "',N'" + cbbGioiTinh.Text
+                if (FormPrivious != null)
+                {
+                    FormPrivious.SQLConnector.ExcuteQuery("Insert dbo.KhachHang Values (N'" + txtTenKH.Text + "',N'" + cbbGioiTinh.Text
                     + "',N'" + txtSDT.Text + "',N'" + txtDiaChi.Text + "',N'" + txtEmail.Text + "')");
-                MessageBox.Show("Thao tác được thực hiện");
-                FormPrivious.dataKH.DataSource = FormPrivious.SQLConnector.Select(FormPrivious.KH.Query).Tables[0];
-                this.Close();
+                    MessageBox.Show("Thao tác được thực hiện");
+                    FormPrivious.dataKH.DataSource = FormPrivious.SQLConnector.Select(FormPrivious.KH.Query).Tables[0];
+                    this.Close();
+                }
+                else
+                {
+                    FormPrivious2.SQLConnector.ExcuteQuery("Insert dbo.KhachHang Values (N'" + txtTenKH.Text + "',N'" + cbbGioiTinh.Text
+                    + "',N'" + txtSDT.Text + "',N'" + txtDiaChi.Text + "',N'" + txtEmail.Text + "')");
+                    MessageBox.Show("Thao tác được thực hiện");
+                    this.Close();
+                }    
+                    
             }
             catch (SqlException)
             {

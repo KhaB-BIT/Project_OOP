@@ -39,9 +39,9 @@ namespace OOP_Desktop
                         i = check;
                     }
                 }
-                catch(Exception a) { }
+                catch (Exception a) { }
                 i++;
-            }    
+            }
             return main;
         }
 
@@ -56,7 +56,7 @@ namespace OOP_Desktop
 
             return txt + value + "'";
         }
-        public string EditQuery(string primary,string varible, string value)
+        public string EditQuery(string primary, string varible, string value)
         {
             return "UPDATE " + TableName() + " SET " + varible + " = N'" + value + "' Where " + Field()[0] + " = N'" + primary + "'";
         }
@@ -65,7 +65,7 @@ namespace OOP_Desktop
         {
             string txt = Query + "Where ";
             string cmdlike = " like N'%%' or ";
-            for (int i=0; i < Field().Count; i++)
+            for (int i = 0; i < Field().Count; i++)
             {
                 txt += Field()[i] + cmdlike.Insert(9, txtbox);
             }
@@ -77,7 +77,7 @@ namespace OOP_Desktop
         public static string ReverseString(string s)
         {
             char[] arr = s.ToCharArray();
-            Array.Reverse(arr); 
+            Array.Reverse(arr);
             return new string(arr);
         }
 
