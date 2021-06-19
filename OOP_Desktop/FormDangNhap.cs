@@ -44,7 +44,7 @@ namespace OOP_Desktop
                 }
                 else if (main2 != null)
                 {
-                    if (txtMatKhau.Text == main.ToString())
+                    if (txtMatKhau.Text == main2.ToString())
                     {
                         FormNhanVien formNV = new FormNhanVien(this);
                         formNV.Show();
