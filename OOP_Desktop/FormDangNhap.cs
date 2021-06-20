@@ -18,12 +18,15 @@ namespace OOP_Desktop
     {
         //Khai báo biến
         internal BookSmart NV = new BookSmart("Select MaNV as 'Mã NV', TenNV as 'Tên nhân viên', TaiKhoan as 'Tài khoản', MatKhau as 'Mật khẩu', Phone as 'SĐT', DiaChi as 'Địa chỉ' from dbo.NhanVien");
-        internal SQL SQLConnector = new SQL(@"Data Source=BI\SQLEXPRESS;Initial Catalog=SQL_EndOfTerm;Integrated Security=True");
+        internal SQL SQLConnector;//new SQL(@"Data Source=BI\SQLEXPRESS;Initial Catalog=SQL_EndOfTerm;Integrated Security=True");
 
         public FormDangNhap()
         {
             InitializeComponent();
-            AddFont();
+            this.WindowState = FormWindowState.Minimized;
+            this.Enabled = false;
+            FormSQLCheck formCheck = new FormSQLCheck(this);
+            formCheck.Show();
         }
 
         internal void ResetTxt()
@@ -115,22 +118,6 @@ namespace OOP_Desktop
         {
             Application.Exit();
         }
-
-        //Add font
-        private void AddFont()
-        {
-            PrivateFontCollection embedfont = new PrivateFontCollection();
-            embedfont.AddFontFile("..//..//Resources//R0C0I - LINOTTE BOLD.TTF");
-            embedfont.AddFontFile("..//..//Resources//R0C0I - LINOTTE HEAVY.TTF");
-            embedfont.AddFontFile("..//..//Resources//R0C0I - LINOTTE LIGHT.TTF");
-            embedfont.AddFontFile("..//..//Resources//R0C0I - LINOTTE REGULAR.TTF");
-            embedfont.AddFontFile("..//..//Resources//R0C0I - LINOTTE SEMI BOLD.TTF");
-            foreach (Control c in this.Controls)
-                c.Font = new Font(embedfont.Families[0], c.Font.Size ,c.Font.Style);
-        }
-
-
-
 
     }
 }

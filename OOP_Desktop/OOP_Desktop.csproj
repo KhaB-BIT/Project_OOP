@@ -68,12 +68,6 @@
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormInHoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormInHoaDon.Designer.cs">
-      <DependentUpon>FormInHoaDon.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +79,12 @@
     </Compile>
     <Compile Include="FormQuanLy.Designer.cs">
       <DependentUpon>FormQuanLy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSQLCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSQLCheck.Designer.cs">
+      <DependentUpon>FormSQLCheck.cs</DependentUpon>
     </Compile>
     <Compile Include="FormThemKhachHang.cs">
       <SubType>Form</SubType>
@@ -117,14 +117,14 @@
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormInHoaDon.resx">
-      <DependentUpon>FormInHoaDon.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormQuanLy.resx">
       <DependentUpon>FormQuanLy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSQLCheck.resx">
+      <DependentUpon>FormSQLCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThemKhachHang.resx">
       <DependentUpon>FormThemKhachHang.cs</DependentUpon>

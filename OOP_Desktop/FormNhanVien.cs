@@ -20,6 +20,7 @@ namespace OOP_Desktop
         {
             InitializeComponent();
             this.formDangNhap = fdn;
+            this.SQLConnector = fdn.SQLConnector;
         }
 
         FormDangNhap formDangNhap;
@@ -29,7 +30,7 @@ namespace OOP_Desktop
         internal BookSmart Sach = new BookSmart("Select MaSach as 'Mã sách', TenSach as 'Tên sách', GiaBan as 'Đơn giá' from dbo.SanPham");
         internal BookSmart KH = new BookSmart("Select MaKH as 'Mã KH', TenKH as 'Tên khách hàng', GioiTinh as 'Giới tính', Phone as 'SĐT', DiaChi as 'Địa chỉ', Email from dbo.KhachHang");
         internal BookSmart NV = new BookSmart("Select MaNV as 'Mã NV', TenNV as 'Tên nhân viên', Phone as 'SĐT', DiaChi as 'Địa chỉ' from dbo.NhanVien");
-        internal SQL SQLConnector = new SQL(@"Data Source=BI\SQLEXPRESS;Initial Catalog=SQL_EndOfTerm;Integrated Security=True");
+        internal SQL SQLConnector;// = new SQL(@"Data Source=BI\SQLEXPRESS;Initial Catalog=SQL_EndOfTerm;Integrated Security=True");
         object[] CellPrivous = new object[3];
         DataTable hi = null;
         double Total;
@@ -375,6 +376,7 @@ namespace OOP_Desktop
                 try
                 {
                     InHoaDon();
+                    vitridong = 275;
                     SQLConnector.ExcuteQuery("Update dbo.DonHang Set NgayXuat=N'" + txtDate.Text + "',TongTien=N'" + Total
                         + "',PTTT=N'" + "Tiền mặt" + "',MaKH=N'" + txtMaKH.Text + "',MaNV=N'" + txtMaNV.Text + "' where PTTT=N'"+ txtMaNV.Text + "GetBillCode'");
                     for (int i = 0; i < dataHoaDon.Rows.Count; i++)
