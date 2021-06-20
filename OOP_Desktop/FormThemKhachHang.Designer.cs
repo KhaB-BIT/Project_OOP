@@ -55,7 +55,7 @@
             this.btnHuy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnHuy.FlatAppearance.BorderSize = 0;
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHuy.Font = new System.Drawing.Font("r0c0i Linotte", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.btnHuy.Location = new System.Drawing.Point(387, 324);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -72,7 +72,7 @@
             this.btnThem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnThem.FlatAppearance.BorderSize = 0;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThem.Font = new System.Drawing.Font("r0c0i Linotte", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Location = new System.Drawing.Point(213, 324);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -86,11 +86,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("r0c0i Linotte", 21.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(55, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(375, 34);
+            this.label1.Size = new System.Drawing.Size(386, 33);
             this.label1.TabIndex = 56;
             this.label1.Text = "Nhập thông tin khách hàng";
             // 
@@ -99,12 +99,12 @@
             this.txtEmail.AccessibleDescription = "";
             this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtEmail.Location = new System.Drawing.Point(430, 261);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(5);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(221, 20);
+            this.txtEmail.Size = new System.Drawing.Size(221, 19);
             this.txtEmail.TabIndex = 6;
             this.txtEmail.Text = "Nhập Email";
             this.txtEmail.Click += new System.EventHandler(this.txtEmail_Click);
@@ -124,12 +124,12 @@
             this.txtSDT.AccessibleDescription = "";
             this.txtSDT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtSDT.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSDT.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSDT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtSDT.Location = new System.Drawing.Point(107, 185);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(5);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(221, 20);
+            this.txtSDT.Size = new System.Drawing.Size(221, 19);
             this.txtSDT.TabIndex = 3;
             this.txtSDT.Text = "Nhập số điện thoại";
             this.txtSDT.Click += new System.EventHandler(this.txtSDT_Click);
@@ -149,12 +149,12 @@
             this.txtDiaChi.AccessibleDescription = "";
             this.txtDiaChi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtDiaChi.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDiaChi.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtDiaChi.Location = new System.Drawing.Point(107, 261);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(5);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(221, 20);
+            this.txtDiaChi.Size = new System.Drawing.Size(221, 19);
             this.txtDiaChi.TabIndex = 5;
             this.txtDiaChi.Text = "Nhập địa chỉ";
             this.txtDiaChi.Click += new System.EventHandler(this.txtDiaChi_Click);
@@ -174,12 +174,12 @@
             this.txtTenKH.AccessibleDescription = "";
             this.txtTenKH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtTenKH.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTenKH.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenKH.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtTenKH.Location = new System.Drawing.Point(107, 111);
             this.txtTenKH.Margin = new System.Windows.Forms.Padding(5);
             this.txtTenKH.Name = "txtTenKH";
-            this.txtTenKH.Size = new System.Drawing.Size(221, 20);
+            this.txtTenKH.Size = new System.Drawing.Size(221, 19);
             this.txtTenKH.TabIndex = 2;
             this.txtTenKH.Text = "Nhập tên khách hàng";
             this.txtTenKH.Click += new System.EventHandler(this.txtTenKH_Click);
@@ -208,25 +208,25 @@
             this.cbbGioiTinh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.cbbGioiTinh.DropDownHeight = 160;
             this.cbbGioiTinh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbGioiTinh.Font = new System.Drawing.Font("r0c0i Linotte", 12F);
+            this.cbbGioiTinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbbGioiTinh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.cbbGioiTinh.FormattingEnabled = true;
             this.cbbGioiTinh.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.cbbGioiTinh.IntegralHeight = false;
-            this.cbbGioiTinh.ItemHeight = 19;
+            this.cbbGioiTinh.ItemHeight = 20;
             this.cbbGioiTinh.Items.AddRange(new object[] {
             "Nam",
             "Nữ"});
             this.cbbGioiTinh.Location = new System.Drawing.Point(415, 182);
             this.cbbGioiTinh.Name = "cbbGioiTinh";
-            this.cbbGioiTinh.Size = new System.Drawing.Size(250, 27);
+            this.cbbGioiTinh.Size = new System.Drawing.Size(250, 28);
             this.cbbGioiTinh.Sorted = true;
             this.cbbGioiTinh.TabIndex = 4;
             this.cbbGioiTinh.Text = "Giới tính";
             // 
             // FormThemKhachHang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(764, 399);
@@ -243,12 +243,13 @@
             this.Controls.Add(this.txtTenKH);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox7);
-            this.Font = new System.Drawing.Font("r0c0i Linotte", 8.25F, System.Drawing.FontStyle.Bold);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.Color.White;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormThemKhachHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm khách hàng";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

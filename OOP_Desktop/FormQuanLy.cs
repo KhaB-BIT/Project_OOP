@@ -21,11 +21,8 @@ namespace OOP_Desktop
             formQlySPLoad();
             this.formDangNhap = fdn;
             this.SQLConnector = formDangNhap.SQLConnector;
-            object check = SQLConnector.Count("dbo.KhachHang");
-            if (check != null)
-                txtKhachHang.Text = check.ToString();
-            else txtKhachHang.Text = "-";
-            txtDoanhThu.Text = "VNĐ";
+            GetKHVaDoanhThu();
+            
         }
 
         //Khai báo biến--------------------------------------
@@ -114,6 +111,7 @@ namespace OOP_Desktop
                         btnQlyDoanhThu.BackColor = Color.FromArgb(33, 31, 45);
                         btnQlyDoanhThu.ForeColor = Color.FromArgb(67, 231, 192);
                         btnQlyDoanhThu.Font = new Font(btnQlyDoanhThu.Font, FontStyle.Bold);
+                        pnlDoanhThu.Visible = true;
                     }
                     break;
                 case "btnDangXuat":
@@ -173,6 +171,23 @@ namespace OOP_Desktop
             }
         }
 
+        private void GetKHVaDoanhThu()
+        {
+            object check = SQLConnector.Count("dbo.KhachHang");
+            if (check != null)
+                txtKhachHang.Text = check.ToString() + " Users";
+            else txtKhachHang.Text = "-";
+
+            check = SQLConnector.MotGiaTri("SELECT SUM(TongTien) FROM dbo.DonHang");
+            if (check != null)
+            {
+                int main = int.Parse(check.ToString());
+                txtDoanhThu.Text = String.Format("{0:0,0}", main) + " VNĐ";
+
+            }
+            else txtDoanhThu.Text = "- VNĐ";
+        }
+
         //Các event chức năng của Form-------------------------
         public void formQlySPLoad()
         {
@@ -185,7 +200,7 @@ namespace OOP_Desktop
         {
             // Fill và định dạng bảng
             ChangebtnEffect("btnDashboard");
-            txtKhachHang.Text = SQLConnector.Count("dbo.KhachHang").ToString();
+            GetKHVaDoanhThu();
             
         }
 
@@ -215,13 +230,6 @@ namespace OOP_Desktop
             ChangebtnEffect("btnQlyDoanhThu");
         }
 
-        //private void btnDangXuat_Click(object sender, EventArgs e)
-        //{
-        //    ChangebtnEffect("btnDangXuat");
-        //    formDangNhap = new FormDangNhap();
-        //    formDangNhap.Show();
-        //    this.Close();
-        //}
         #endregion
 
         //Tạo số thứ tự tự động cho bảng datagridview
@@ -532,5 +540,117 @@ namespace OOP_Desktop
             FormDetailNV dtS = new FormDetailNV(this);
             dtS.Show();
         }
+
+        //Quản lý doanh thu
+        #region Quản lý doanh thu
+        private void btnXemDT_Click(object sender, EventArgs e)
+        {
+            string query = "Select MaDH as 'Mã đơn hàng', NgayXuat as 'Ngày xuất', TongTien as 'Tổng tiền', PTTT, MaKH as 'Mã KH', MaNV as 'Mã NV' From dbo.DonHang ";
+            try
+            {
+                if (cbbFilter.SelectedItem == "Năm")
+                {
+                    object check = SQLConnector.MotGiaTri("Select SUM(TongTien) From dbo.DonHang where NgayXuat like '" + txtYear.Text + "%'");
+                    if (check != null)
+                    {
+                        int main = int.Parse(check.ToString());
+                        txtDTF.Text = String.Format("{0:0,0}", main) + " VNĐ";
+                        dataHoaDonDT.DataSource = SQLConnector.Select(query + "where NgayXuat like '" + txtYear.Text + "%'").Tables[0];
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nhập sai dữ liệu, vui lòng kiểm tra lại!");
+                    }
+
+                }
+                if (cbbFilter.SelectedItem == "Tháng")
+                {
+                    object check = SQLConnector.MotGiaTri("Select SUM(TongTien) From dbo.DonHang where NgayXuat like '" + txtYear.Text + "-" + txtMoth.Text + "%'");
+                    if (check != null)
+                    {
+                        int main = int.Parse(check.ToString());
+                        txtDTF.Text = String.Format("{0:0,0}", main) + " VNĐ";
+                        dataHoaDonDT.DataSource = SQLConnector.Select(query + "where NgayXuat like '" + txtYear.Text + "-" + txtMoth.Text + "%'").Tables[0];
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nhập sai dữ liệu, vui lòng kiểm tra lại!");
+                    }
+
+                }
+                if (cbbFilter.SelectedItem == "Ngày")
+                {
+                    object check = SQLConnector.MotGiaTri("Select SUM(TongTien) From dbo.DonHang where NgayXuat like '" + txtYear.Text + "-" + txtMoth.Text + "-" + txtDay.Text + "'");
+                    if (check != null)
+                    {
+                        int main = int.Parse(check.ToString());
+                        txtDTF.Text = String.Format("{0:0,0}", main) + " VNĐ";
+                        dataHoaDonDT.DataSource = SQLConnector.Select(query + "where NgayXuat like '" + txtYear.Text + "-" + txtMoth.Text + "-" + txtDay.Text + "'").Tables[0];
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nhập sai dữ liệu, vui lòng kiểm tra lại!");
+                    }
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi, xin vui lòng thử lại");
+            }
+        }
+
+        private void txtYear_Click(object sender, EventArgs e)
+        {
+            if (txtYear.Text == "Năm") txtYear.Text = "";
+        }
+
+        private void txtYear_Leave(object sender, EventArgs e)
+        {
+            if (txtYear.Text == "") txtYear.Text = "Năm";
+
+        }
+
+        private void txtMoth_Click(object sender, EventArgs e)
+        {
+            if (txtMoth.Text == "Tháng") txtYear.Text = "";
+
+        }
+        private void txtMoth_Leave(object sender, EventArgs e)
+        {
+            if (txtMoth.Text == "") txtYear.Text = "Tháng";
+
+        }
+
+        private void txtDay_Click(object sender, EventArgs e)
+        {
+            if (txtDay.Text == "Ngày") txtYear.Text = "";
+
+        }
+
+        private void txtDay_Leave(object sender, EventArgs e)
+        {
+            if (txtDay.Text == "") txtYear.Text = "Ngày";
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FormXemChiTiet xct = new FormXemChiTiet();
+                xct.dataThongTin.DataSource = SQLConnector.Select("Select MaDH as 'Mã đơn hàng', MaSach as 'Mã sách', SoLuong as 'Số lượng', DonGia as 'Đơn giá' from dbo.ChiTietDonHang " +
+                    "where MaDH = N'"+dataHoaDonDT.CurrentRow.Cells[1].Value.ToString()+"'").Tables[0];
+                xct.Show();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Lỗi, xin vui lòng thử lại");
+            }
+        }
     }
+    #endregion
+
+
+
 }

@@ -57,7 +57,7 @@
             this.btnHuy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnHuy.FlatAppearance.BorderSize = 0;
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHuy.Font = new System.Drawing.Font("r0c0i Linotte", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.btnHuy.Location = new System.Drawing.Point(382, 325);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -74,7 +74,7 @@
             this.btnThem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnThem.FlatAppearance.BorderSize = 0;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThem.Font = new System.Drawing.Font("r0c0i Linotte", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Location = new System.Drawing.Point(208, 325);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -88,11 +88,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("r0c0i Linotte", 21.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(50, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(352, 34);
+            this.label1.Size = new System.Drawing.Size(361, 33);
             this.label1.TabIndex = 69;
             this.label1.Text = "Nhập thông tin nhân viên";
             // 
@@ -101,12 +101,12 @@
             this.txtDiaChi.AccessibleDescription = "";
             this.txtDiaChi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtDiaChi.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDiaChi.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtDiaChi.Location = new System.Drawing.Point(425, 262);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(5);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Size = new System.Drawing.Size(221, 20);
+            this.txtDiaChi.Size = new System.Drawing.Size(221, 19);
             this.txtDiaChi.TabIndex = 6;
             this.txtDiaChi.Text = "Nhập địa chỉ";
             this.txtDiaChi.Click += new System.EventHandler(this.txtDiaChi_Click);
@@ -126,12 +126,12 @@
             this.txtTaiKhoan.AccessibleDescription = "";
             this.txtTaiKhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTaiKhoan.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTaiKhoan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtTaiKhoan.Location = new System.Drawing.Point(102, 186);
             this.txtTaiKhoan.Margin = new System.Windows.Forms.Padding(5);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
-            this.txtTaiKhoan.Size = new System.Drawing.Size(221, 20);
+            this.txtTaiKhoan.Size = new System.Drawing.Size(221, 19);
             this.txtTaiKhoan.TabIndex = 3;
             this.txtTaiKhoan.Text = "Nhập tài khoản";
             this.txtTaiKhoan.Click += new System.EventHandler(this.txtTaiKhoan_Click);
@@ -151,12 +151,12 @@
             this.txtSDT.AccessibleDescription = "";
             this.txtSDT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtSDT.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSDT.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSDT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtSDT.Location = new System.Drawing.Point(102, 262);
             this.txtSDT.Margin = new System.Windows.Forms.Padding(5);
             this.txtSDT.Name = "txtSDT";
-            this.txtSDT.Size = new System.Drawing.Size(221, 20);
+            this.txtSDT.Size = new System.Drawing.Size(221, 19);
             this.txtSDT.TabIndex = 5;
             this.txtSDT.Text = "Nhập số điện thoại";
             this.txtSDT.Click += new System.EventHandler(this.txtSDT_Click);
@@ -176,12 +176,12 @@
             this.txtTenNV.AccessibleDescription = "";
             this.txtTenNV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtTenNV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTenNV.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenNV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtTenNV.Location = new System.Drawing.Point(102, 112);
             this.txtTenNV.Margin = new System.Windows.Forms.Padding(5);
             this.txtTenNV.Name = "txtTenNV";
-            this.txtTenNV.Size = new System.Drawing.Size(221, 20);
+            this.txtTenNV.Size = new System.Drawing.Size(221, 19);
             this.txtTenNV.TabIndex = 2;
             this.txtTenNV.Text = "Nhập tên nhân viên";
             this.txtTenNV.Click += new System.EventHandler(this.txtTenNV_Click);
@@ -210,12 +210,12 @@
             this.txtMatKhau.AccessibleDescription = "";
             this.txtMatKhau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtMatKhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMatKhau.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMatKhau.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtMatKhau.Location = new System.Drawing.Point(425, 186);
             this.txtMatKhau.Margin = new System.Windows.Forms.Padding(5);
             this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(221, 20);
+            this.txtMatKhau.Size = new System.Drawing.Size(221, 19);
             this.txtMatKhau.TabIndex = 4;
             this.txtMatKhau.Text = "Nhập mật khẩu";
             this.txtMatKhau.Click += new System.EventHandler(this.txtMatKhau_Click);
@@ -253,7 +253,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormThemNhanVien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormThemNhanVien";
+            this.Text = "Thêm nhân viên";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
