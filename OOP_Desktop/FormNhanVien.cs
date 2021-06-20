@@ -322,6 +322,7 @@ namespace OOP_Desktop
                 dataHoaDon.Rows.RemoveAt(dataHoaDon.CurrentRow.Index);
                 if (dataHoaDon.Rows.Count < 1)
                 {
+                    Total = 0;
                     txtThanhTien.Text = "0 VNĐ";
                 }
                 else
