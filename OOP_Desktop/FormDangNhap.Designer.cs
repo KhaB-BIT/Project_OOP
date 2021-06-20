@@ -102,6 +102,7 @@
             this.txtMatKhau.Text = "Mật khẩu";
             this.txtMatKhau.Click += new System.EventHandler(this.txtMatKhau_Click);
             this.txtMatKhau.TextChanged += new System.EventHandler(this.txtMatKhau_TextChanged);
+            this.txtMatKhau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatKhau_KeyPress);
             this.txtMatKhau.Leave += new System.EventHandler(this.txtMatKhau_Leave);
             // 
             // pictureBox1

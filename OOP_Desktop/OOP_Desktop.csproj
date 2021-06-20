@@ -68,6 +68,12 @@
     <Compile Include="FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormInHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInHoaDon.Designer.cs">
+      <DependentUpon>FormInHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     <Compile Include="SQL.cs" />
     <EmbeddedResource Include="FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInHoaDon.resx">
+      <DependentUpon>FormInHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
@@ -160,6 +169,11 @@
     <None Include="Resources\money.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\R0C0I - LINOTTE BOLD.TTF" />
+    <None Include="Resources\R0C0I - LINOTTE HEAVY.TTF" />
+    <None Include="Resources\R0C0I - LINOTTE LIGHT.TTF" />
+    <None Include="Resources\R0C0I - LINOTTE REGULAR.TTF" />
+    <None Include="Resources\R0C0I - LINOTTE SEMI BOLD.TTF" />
     <None Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

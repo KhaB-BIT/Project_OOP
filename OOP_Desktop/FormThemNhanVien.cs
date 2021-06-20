@@ -84,12 +84,12 @@ namespace OOP_Desktop
 
         private void txtDiaChi_Click(object sender, EventArgs e)
         {
-            if (txtDiaChi.Text == "Nhập số địa chỉ") txtDiaChi.Text = "";
+            if (txtDiaChi.Text == "Nhập địa chỉ") txtDiaChi.Text = "";
         }
 
         private void txtDiaChi_Leave(object sender, EventArgs e)
         {
-            if (txtDiaChi.Text == "") txtDiaChi.Text = "Nhập số địa chỉ";
+            if (txtDiaChi.Text == "") txtDiaChi.Text = "Nhập địa chỉ";
         }
 
         //Effects -----------------------------

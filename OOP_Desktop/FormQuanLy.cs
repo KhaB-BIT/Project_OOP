@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
+using System.Drawing.Text;
 
 namespace OOP_Desktop
 {
@@ -19,19 +20,17 @@ namespace OOP_Desktop
             InitializeComponent();
             formQlySPLoad();
             this.formDangNhap = fdn;
-            
         }
-
-        FormDangNhap formDangNhap;
-
 
         //Khai báo biến--------------------------------------
         #region Khai báo biến
+        FormDangNhap formDangNhap;
         internal BookSmart Sach = new BookSmart("Select MaSach as 'Mã sách', Series as 'Series', MaTL as 'Mã thể loại', TenSach as 'Tên sách', SoLuong as 'Số lượng', GiaNhap as 'Giá nhập', GiaBan as 'Giá bán' from dbo.SanPham");
         internal BookSmart KH = new BookSmart("Select MaKH as 'Mã KH', TenKH as 'Tên khách hàng', GioiTinh as 'Giới tính', Phone as 'SĐT', DiaChi as 'Địa chỉ', Email from dbo.KhachHang");
         internal BookSmart NV = new BookSmart("Select MaNV as 'Mã NV', TenNV as 'Tên nhân viên', TaiKhoan as 'Tài khoản', MatKhau as 'Mật khẩu', Phone as 'SĐT', DiaChi as 'Địa chỉ' from dbo.NhanVien");
         internal SQL SQLConnector = new SQL(@"Data Source=BI\SQLEXPRESS;Initial Catalog=SQL_EndOfTerm;Integrated Security=True");
         object[] CellPrivous= new object[3];
+        PrivateFontCollection embedfont = new PrivateFontCollection();
         #endregion
 
         //Các hàm chức năng------------------------------------
@@ -49,21 +48,21 @@ namespace OOP_Desktop
             btnQlyKH.BackColor = Color.FromArgb(11, 8, 20);
             btnQlyNV.BackColor = Color.FromArgb(11, 8, 20);
             btnQlyDoanhThu.BackColor = Color.FromArgb(11, 8, 20);
-            btnDangXuat.BackColor = Color.FromArgb(11, 8, 20);
+            //btnDangXuat.BackColor = Color.FromArgb(11, 8, 20);
             //Fill text
             btnDashboard.ForeColor = Color.FromArgb(255, 255, 255);
             btnQlySach.ForeColor = Color.FromArgb(255, 255, 255);
             btnQlyKH.ForeColor = Color.FromArgb(255, 255, 255);
             btnQlyNV.ForeColor = Color.FromArgb(255, 255, 255);
             btnQlyDoanhThu.ForeColor = Color.FromArgb(255, 255, 255);
-            btnDangXuat.ForeColor = Color.FromArgb(255, 255, 255);
+            //btnDangXuat.ForeColor = Color.FromArgb(255, 255, 255);
             //Font Style
             btnDashboard.Font = new Font(btnDashboard.Font, FontStyle.Regular);
             btnQlySach.Font = new Font(btnQlySach.Font, FontStyle.Regular);
             btnQlyKH.Font = new Font(btnQlyKH.Font, FontStyle.Regular);
             btnQlyNV.Font = new Font(btnQlyNV.Font, FontStyle.Regular);
             btnQlyDoanhThu.Font = new Font(btnQlyDoanhThu.Font, FontStyle.Regular);
-            btnDangXuat.Font = new Font(btnDangXuat.Font, FontStyle.Regular);
+            //btnDangXuat.Font = new Font(btnDangXuat.Font, FontStyle.Regular);
             //Unvisible
             pnlDashboard.Visible = false;
             pnlQlyKH.Visible = false;
@@ -113,9 +112,9 @@ namespace OOP_Desktop
                     break;
                 case "btnDangXuat":
                     {
-                        btnDangXuat.BackColor = Color.FromArgb(33, 31, 45);
-                        btnDangXuat.ForeColor = Color.FromArgb(67, 231, 192);
-                        btnDangXuat.Font = new Font(btnDangXuat.Font, FontStyle.Bold);
+                        //btnDangXuat.BackColor = Color.FromArgb(33, 31, 45);
+                        //btnDangXuat.ForeColor = Color.FromArgb(67, 231, 192);
+                        //btnDangXuat.Font = new Font(btnDangXuat.Font, FontStyle.Bold);
                     }
                     break;
 
@@ -212,13 +211,13 @@ namespace OOP_Desktop
             ChangebtnEffect("btnQlyDoanhThu");
         }
 
-        private void btnDangXuat_Click(object sender, EventArgs e)
-        {
-            ChangebtnEffect("btnDangXuat");
-            formDangNhap = new FormDangNhap();
-            formDangNhap.Show();
-            this.Close();
-        }
+        //private void btnDangXuat_Click(object sender, EventArgs e)
+        //{
+        //    ChangebtnEffect("btnDangXuat");
+        //    formDangNhap = new FormDangNhap();
+        //    formDangNhap.Show();
+        //    this.Close();
+        //}
         #endregion
 
         //Tạo số thứ tự tự động cho bảng datagridview
@@ -309,6 +308,31 @@ namespace OOP_Desktop
         #endregion
 
         #region Event tìm kiếm nhân viên
+        private void txtTimKiemNV_Click(object sender, EventArgs e)
+        {
+            if (txtTimKiemNV.Text == "Tìm kiếm") txtTimKiemNV.Text = "";
+        }
+
+        private void txtTimKiemNV_Leave(object sender, EventArgs e)
+        {
+            if (txtTimKiemNV.Text == "") txtTimKiemNV.Text = "Tìm kiếm";
+
+        }
+
+        private void btnTimKiemNV_Click(object sender, EventArgs e)
+        {
+            if (btnTimKiemNV.Text == "Tìm kiếm")
+            {
+                btnTimKiemNV.Text = "Hủy";
+                dataNV.DataSource = SQLConnector.Select(NV.SearchQuery(txtTimKiemNV.Text)).Tables[0];
+            }
+            else
+            {
+                btnTimKiemNV.Text = "Tìm kiếm";
+                txtTimKiemNV.Text = "Tìm kiếm";
+                dataNV.DataSource = SQLConnector.Select(NV.Query).Tables[0];
+            }
+        }
         #endregion
 
 
@@ -486,5 +510,7 @@ namespace OOP_Desktop
         {
             Application.Exit();
         }
+
+
     }
 }

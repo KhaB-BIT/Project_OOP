@@ -33,6 +33,7 @@ namespace OOP_Desktop
         object[] CellPrivous = new object[3];
         DataTable hi = null;
         double Total;
+        int vitridong = 275;
         #endregion  
 
         //Formload---------------------------------
@@ -53,7 +54,11 @@ namespace OOP_Desktop
             //Thông tin nhân viên
             txtMaNV.Text = SQLConnector.MotGiaTri("Select MaNV from dbo.NhanVien where TaiKhoan =N'" + formDangNhap.txtTaiKhoan.Text + "'").ToString();
             txtTenNV.Text = SQLConnector.MotGiaTri("Select TenNV from dbo.NhanVien where TaiKhoan =N'" + formDangNhap.txtTaiKhoan.Text+"'").ToString();
-            
+
+            //Get mã hóa đơn
+            GetMaHD();
+
+
         }
 
 
@@ -126,6 +131,7 @@ namespace OOP_Desktop
                             dataHoaDon.Columns[2].ReadOnly = true;
                             Total = 0;
                             dataHoaDon.Rows[dataHoaDon.Rows.Count - 1].Cells[3].Value = "1";
+                            ThanhTien();
                         }
                         else
                         {
@@ -141,8 +147,8 @@ namespace OOP_Desktop
                                     {
                                         MessageBox.Show("Không đủ số lượng sản phẩm");
                                         dataHoaDon.Rows[i].Cells[3].Value = "1";
-                                        ThanhTien();
                                     }
+                                    TinhLaiTien();
                                     checkbool = false;
                                     break;
                                 }    
@@ -152,10 +158,9 @@ namespace OOP_Desktop
                                 hi.ImportRow(SQLConnector.Select(Sach.Query + " where Series = '" + txtMaSP.Text + "'").Tables[0].Rows[0]);
                                 dataHoaDon.DataSource = hi; 
                                 dataHoaDon.Rows[dataHoaDon.Rows.Count - 1].Cells[3].Value = "1";
+                                ThanhTien();
                             }    
                         }
-                        
-                        ThanhTien();
                     }
                     else MessageBox.Show("Sản phẩm hết hàng");
                 }
@@ -244,6 +249,7 @@ namespace OOP_Desktop
                                     dataHoaDon.Columns[2].ReadOnly = true;
                                     Total = 0;
                                     dataHoaDon.Rows[dataHoaDon.Rows.Count - 1].Cells[3].Value = "1";
+                                    ThanhTien();
                                 }
                                 else
                                 {
@@ -258,8 +264,8 @@ namespace OOP_Desktop
                                             {
                                                 MessageBox.Show("Không đủ số lượng sản phẩm");
                                                 dataHoaDon.Rows[i].Cells[3].Value = "1";
-                                                ThanhTien();
                                             }
+                                            TinhLaiTien();
                                             checkbool = false;
                                             break;
                                         }
@@ -269,10 +275,9 @@ namespace OOP_Desktop
                                         hi.ImportRow(SQLConnector.Select(Sach.Query + " where Series = '" + result.ToString() + "'").Tables[0].Rows[0]);
                                         dataHoaDon.DataSource = hi;
                                         dataHoaDon.Rows[dataHoaDon.Rows.Count - 1].Cells[3].Value = "1";
+                                        ThanhTien();
                                     }
                                 }
-
-                                ThanhTien();
                             }
                             else MessageBox.Show("Sản phẩm hết hàng");
                         }
@@ -313,20 +318,13 @@ namespace OOP_Desktop
         private void btnXoaSP_Click(object sender, EventArgs e)
         {
             dataHoaDon.Rows.RemoveAt(dataHoaDon.CurrentRow.Index);
-            Total = 0;
             if (dataHoaDon.Rows.Count < 1)
             {
                 txtThanhTien.Text = "0 VNĐ";
             }
             else
             {
-                for (int i = 0; i < dataHoaDon.Rows.Count; i++)
-                {
-                    double gia = double.Parse(dataHoaDon.Rows[i].Cells[2].Value.ToString());
-                    int soluong = int.Parse(dataHoaDon.Rows[i].Cells[3].Value.ToString());
-                    Total += (int)gia * (int)soluong;
-                }
-                txtThanhTien.Text = String.Format("{0:0,0}", Total) + " VNĐ";
+                TinhLaiTien();
             }
 
         }
@@ -335,25 +333,15 @@ namespace OOP_Desktop
         #region Sửa số lượng
         private void dataHoaDon_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            string query = "Select SoLuong from dbo.SanPham" + " where MaSach = '" + dataHoaDon.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[1]].Value + "'";
+            string query = "Select SoLuong from dbo.SanPham" + " where MaSach = '" + dataHoaDon.Rows[(int)CellPrivous[1]].Cells[0].Value + "'";
             int check = int.Parse(dataHoaDon.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[2]].Value.ToString());
-            if (int.Parse(SQLConnector.MotGiaTri(query).ToString()) >= check)
-            {
-                Total = 0;
-                for (int i = 0; i < dataHoaDon.Rows.Count; i++)
-                {
-                    double gia = double.Parse(dataHoaDon.Rows[i].Cells[2].Value.ToString());
-                    int soluong = int.Parse(dataHoaDon.Rows[i].Cells[3].Value.ToString());
-                    Total += (int)gia * (int)soluong;
-                }
-                txtThanhTien.Text = String.Format("{0:0,0}", Total) + " VNĐ";
-            }
-            else
+            if (int.Parse(SQLConnector.MotGiaTri(query).ToString()) < check)
             {
                 dataHoaDon.Rows[(int)CellPrivous[1]].Cells[(int)CellPrivous[2]].Value = "1";
                 MessageBox.Show("Không còn đủ số lượng sản phẩm");
             }
-            
+            TinhLaiTien();
+
         }
         #endregion
 
@@ -365,14 +353,83 @@ namespace OOP_Desktop
             Total += (int)gia * (int)soluong;
             txtThanhTien.Text = String.Format("{0:0,0}", Total) + " VNĐ";
         }
+
+        private void TinhLaiTien()
+        {
+            Total = 0;
+            for (int i = 0; i < dataHoaDon.Rows.Count; i++)
+            {
+                double gia = double.Parse(dataHoaDon.Rows[i].Cells[2].Value.ToString());
+                int soluong = int.Parse(dataHoaDon.Rows[i].Cells[3].Value.ToString());
+                Total += (int)gia * (int)soluong;
+            }
+            txtThanhTien.Text = String.Format("{0:0,0}", Total) + " VNĐ";
+        }
         #endregion
 
         #region Xuất hóa đơn
-
+        private void btnXuatHoaDon_Click(object sender, EventArgs e)
+        {
+            if (dataHoaDon.Rows.Count > 0)
+            {
+                try
+                {
+                    InHoaDon();
+                    SQLConnector.ExcuteQuery("Update dbo.DonHang Set NgayXuat=N'" + txtDate.Text + "',TongTien=N'" + Total
+                        + "',PTTT=N'" + "Tiền mặt" + "',MaKH=N'" + txtMaKH.Text + "',MaNV=N'" + txtMaNV.Text + "' where PTTT=N'"+ txtMaNV.Text + "GetBillCode'");
+                    for (int i = 0; i < dataHoaDon.Rows.Count; i++)
+                    {
+                        string query = "UPDATE dbo.SanPham SET Soluong = Soluong - " + dataHoaDon.Rows[i].Cells[3].Value.ToString()
+                            + " WHERE MaSach = N'" + dataHoaDon.Rows[i].Cells[0].Value.ToString() + "'";
+                        SQLConnector.ExcuteQuery(query);
+                    }
+                    hi = null;
+                    dataHoaDon.DataSource = null;
+                    dataHoaDon.Columns.RemoveAt(0);
+                    TinhLaiTien();
+                    GetMaHD();
+                    MessageBox.Show("Thao tác được thực hiện");
+                }
+                catch (SqlException)
+                {
+                    MessageBox.Show("Không thành công");
+                }
+            }
+            else MessageBox.Show("Không thể xuất hóa đơn vì chưa có sản phẩm được chọn");
+        }
         #endregion
 
         #region In hóa linh
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawString("BookSmart", new Font("Century Gothic", 18, FontStyle.Bold), Brushes.Blue, new Point(70, 25));
+            e.Graphics.DrawString("Địa: Cửa hàng sách BookSmart HCM", new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.Blue, new Point(10, 75));
+            e.Graphics.DrawString("Email: booksmart@gmail.com", new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.Blue, new Point(10, 100));
+            e.Graphics.DrawString("Mã nhân viên: " + txtMaNV.Text, new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.Blue, new Point(10, 125));
+            e.Graphics.DrawString("Tên nhân viên: " + txtTenNV.Text, new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.Blue, new Point(10, 150));
+            e.Graphics.DrawString("Mã hóa đơn: " + txtMaHD.Text, new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.Blue, new Point(10, 175));
+            e.Graphics.DrawString("Ngày xuất: " + txtDate.Text, new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.Blue, new Point(10, 200));
+            e.Graphics.DrawString("===================================================================", new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.DarkRed, new Point(10, 225));
+            e.Graphics.DrawString("Tên sản phẩm                Số lượng            Đơn giá     ", new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.Blue, new Point(10, 250));
+            for(int i=0; i < dataHoaDon.Rows.Count; i++)
+            {
+                e.Graphics.DrawString(dataHoaDon.Rows[i].Cells[1].Value.ToString(), new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.Black, new Point(10, vitridong));
+                e.Graphics.DrawString(dataHoaDon.Rows[i].Cells[3].Value.ToString(), new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.Black, new Point(150, vitridong));
+                e.Graphics.DrawString(String.Format("{0:0,0}",int.Parse(dataHoaDon.Rows[i].Cells[2].Value.ToString())), new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.Black, new Point(210, vitridong));
+                vitridong += 25;
+            }    
 
+            e.Graphics.DrawString("===================================================================", new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.DarkRed, new Point(10, vitridong));
+            e.Graphics.DrawString("Thành tiền:   " + String.Format("{0:0,0}", Total) + " VNĐ", new Font("Microsoft Sans Serif", 8, FontStyle.Bold), Brushes.Blue, new Point(115, vitridong+25));
+            e.Graphics.DrawString("BookSmart xin cảm ơn và hẹn gặp lại", new Font("Microsoft Sans Serif", 8, FontStyle.Italic), Brushes.Blue, new Point(40, vitridong+75));
+        }
+
+        private void InHoaDon()
+        {
+            printPreviewDialog1.Document = printDocument1;
+            printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprmn", 280, vitridong + 200);
+            printPreviewDialog1.ShowDialog();
+        }
         #endregion
 
         //Cập nhật thời gian tạo hóa đơn------------
@@ -382,33 +439,34 @@ namespace OOP_Desktop
             txtDate.Text = date.ToString("yyyy-MM-dd");
         }
 
-        private void btnXuatHoaDon_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                SQLConnector.ExcuteQuery("Insert dbo.DonHang Values (N'" + txtDate.Text + "',N'" + Total
-                    + "',N'" + "Tiền mặt" + "',N'" + txtMaKH.Text + "',N'" + txtMaNV.Text  + "')");
-                for(int i=0; i < dataHoaDon.Rows.Count; i++)
-                {
-                    string query = "UPDATE dbo.SanPham SET Soluong = Soluong - " + dataHoaDon.Rows[i].Cells[3].Value.ToString() 
-                        + " WHERE MaSach = N'" + dataHoaDon.Rows[i].Cells[0].Value.ToString() + "'";
-                    SQLConnector.ExcuteQuery(query);
-                }    
-                hi = null;
-                dataHoaDon.DataSource = null;
-                dataHoaDon.Columns.RemoveAt(0);
-                MessageBox.Show("Thao tác được thực hiện");
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Không thành công");
-            }
-        }
+
 
         private void dataHoaDon_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
             CellPrivous[1] = e.RowIndex;
             CellPrivous[2] = e.ColumnIndex;
+        }
+
+
+
+        private void GetMaHD()
+        {
+            object main = SQLConnector.MotGiaTri("Select MaDH from dbo.DonHang where PTTT=N'" + txtMaNV.Text + "GetBillCode'");
+            if(main != null)
+            {
+                txtMaHD.Text = main.ToString();
+            }  
+            else
+            {
+                SQLConnector.ExcuteQuery("INSERT dbo.DonHang (NgayXuat,TongTien,PTTT) VALUES (N'" + txtDate.Text + "',N'" + 0 + "',N'" + txtMaNV.Text + "GetBillCode')");
+                main = SQLConnector.MotGiaTri("Select MaDH from dbo.DonHang where PTTT=N'" + txtMaNV.Text + "GetBillCode'");
+                txtMaHD.Text = main.ToString();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
