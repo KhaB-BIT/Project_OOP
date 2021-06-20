@@ -71,6 +71,7 @@ namespace OOP_Desktop
             pnlQlyKH.Visible = false;
             pnlQlySach.Visible = false;
             pnlQlyNV.Visible = false;
+            pnlDoanhThu.Visible = false;
 
             switch (btn)
             {
