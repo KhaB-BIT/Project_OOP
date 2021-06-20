@@ -249,6 +249,10 @@ namespace OOP_Desktop
             this.dataNV.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
 
         }
+        private void dataHoaDonDT_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            this.dataHoaDonDT.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+        }
         #endregion
 
         //Event định dạng layout bảng
@@ -613,24 +617,24 @@ namespace OOP_Desktop
 
         private void txtMoth_Click(object sender, EventArgs e)
         {
-            if (txtMoth.Text == "Tháng") txtYear.Text = "";
+            if (txtMoth.Text == "Tháng") txtMoth.Text = "";
 
         }
         private void txtMoth_Leave(object sender, EventArgs e)
         {
-            if (txtMoth.Text == "") txtYear.Text = "Tháng";
+            if (txtMoth.Text == "") txtMoth.Text = "Tháng";
 
         }
 
         private void txtDay_Click(object sender, EventArgs e)
         {
-            if (txtDay.Text == "Ngày") txtYear.Text = "";
+            if (txtDay.Text == "Ngày") txtDay.Text = "";
 
         }
 
         private void txtDay_Leave(object sender, EventArgs e)
         {
-            if (txtDay.Text == "") txtYear.Text = "Ngày";
+            if (txtDay.Text == "") txtDay.Text = "Ngày";
 
         }
 
@@ -648,6 +652,8 @@ namespace OOP_Desktop
                 MessageBox.Show("Lỗi, xin vui lòng thử lại");
             }
         }
+
+
     }
     #endregion
 

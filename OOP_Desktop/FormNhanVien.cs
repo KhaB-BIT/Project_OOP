@@ -436,13 +436,16 @@ namespace OOP_Desktop
 
             e.Graphics.DrawString("===================================================================", new Font("Microsoft Sans Serif", 8, FontStyle.Regular), Brushes.DarkRed, new Point(10, vitridong));
             e.Graphics.DrawString("Thành tiền:   " + String.Format("{0:0,0}", Total) + " VNĐ", new Font("Microsoft Sans Serif", 8, FontStyle.Bold), Brushes.Blue, new Point(115, vitridong+25));
-            e.Graphics.DrawString("BookSmart xin cảm ơn và hẹn gặp lại", new Font("Microsoft Sans Serif", 8, FontStyle.Italic), Brushes.Blue, new Point(40, vitridong+75));
+            e.Graphics.DrawString("BookSmart xin cảm ơn và hẹn gặp lại", new Font("Microsoft Sans Serif", 8, FontStyle.Italic), Brushes.Blue, new Point(40, vitridong+70));
         }
 
         private void InHoaDon()
         {
+            int lenght = 0;
+            for (int i = 0; i < dataHoaDon.Rows.Count; i++)
+                lenght += 25;
             printPreviewDialog1.Document = printDocument1;
-            printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprmn", 280, vitridong + 200);
+            printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprmn", 280, vitridong + lenght + 140);
             printPreviewDialog1.ShowDialog();
         }
         #endregion

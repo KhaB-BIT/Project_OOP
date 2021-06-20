@@ -101,6 +101,13 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlDoanhThu = new System.Windows.Forms.Panel();
+            this.txtDTF = new System.Windows.Forms.TextBox();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.cbbFilter = new System.Windows.Forms.ComboBox();
+            this.txtDay = new System.Windows.Forms.TextBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.txtMoth = new System.Windows.Forms.TextBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnXemDT = new System.Windows.Forms.Button();
             this.dataHoaDonDT = new System.Windows.Forms.DataGridView();
@@ -109,13 +116,9 @@
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.txtMoth = new System.Windows.Forms.TextBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.txtDay = new System.Windows.Forms.TextBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.cbbFilter = new System.Windows.Forms.ComboBox();
-            this.txtDTF = new System.Windows.Forms.TextBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.pnlDashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -134,12 +137,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlDoanhThu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataHoaDonDT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             this.SuspendLayout();
             // 
             // btnQlyNV
@@ -880,7 +883,6 @@
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataKH.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.dataKH.RowHeadersVisible = false;
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1019,6 +1021,9 @@
             // pnlDoanhThu
             // 
             this.pnlDoanhThu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.pnlDoanhThu.Controls.Add(this.label3);
+            this.pnlDoanhThu.Controls.Add(this.label2);
+            this.pnlDoanhThu.Controls.Add(this.label1);
             this.pnlDoanhThu.Controls.Add(this.txtDTF);
             this.pnlDoanhThu.Controls.Add(this.pictureBox15);
             this.pnlDoanhThu.Controls.Add(this.cbbFilter);
@@ -1039,6 +1044,101 @@
             this.pnlDoanhThu.Size = new System.Drawing.Size(1024, 723);
             this.pnlDoanhThu.TabIndex = 27;
             this.pnlDoanhThu.Visible = false;
+            // 
+            // txtDTF
+            // 
+            this.txtDTF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.txtDTF.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDTF.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDTF.ForeColor = System.Drawing.Color.White;
+            this.txtDTF.Location = new System.Drawing.Point(279, 206);
+            this.txtDTF.Name = "txtDTF";
+            this.txtDTF.ReadOnly = true;
+            this.txtDTF.Size = new System.Drawing.Size(512, 55);
+            this.txtDTF.TabIndex = 45;
+            this.txtDTF.Text = "0 VNĐ";
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Image = global::OOP_Desktop.Properties.Resources.money;
+            this.pictureBox15.InitialImage = global::OOP_Desktop.Properties.Resources.money;
+            this.pictureBox15.Location = new System.Drawing.Point(201, 206);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(63, 58);
+            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox15.TabIndex = 44;
+            this.pictureBox15.TabStop = false;
+            // 
+            // cbbFilter
+            // 
+            this.cbbFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
+            this.cbbFilter.DropDownHeight = 160;
+            this.cbbFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cbbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
+            this.cbbFilter.FormattingEnabled = true;
+            this.cbbFilter.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.cbbFilter.IntegralHeight = false;
+            this.cbbFilter.ItemHeight = 20;
+            this.cbbFilter.Items.AddRange(new object[] {
+            "Năm",
+            "Tháng",
+            "Ngày"});
+            this.cbbFilter.Location = new System.Drawing.Point(565, 142);
+            this.cbbFilter.Name = "cbbFilter";
+            this.cbbFilter.Size = new System.Drawing.Size(154, 28);
+            this.cbbFilter.TabIndex = 43;
+            this.cbbFilter.Text = "Năm";
+            // 
+            // txtDay
+            // 
+            this.txtDay.AccessibleDescription = "";
+            this.txtDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
+            this.txtDay.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
+            this.txtDay.Location = new System.Drawing.Point(426, 145);
+            this.txtDay.Margin = new System.Windows.Forms.Padding(5);
+            this.txtDay.Name = "txtDay";
+            this.txtDay.Size = new System.Drawing.Size(100, 19);
+            this.txtDay.TabIndex = 41;
+            this.txtDay.Text = "Ngày";
+            this.txtDay.Click += new System.EventHandler(this.txtDay_Click);
+            this.txtDay.Leave += new System.EventHandler(this.txtDay_Leave);
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
+            this.pictureBox14.Location = new System.Drawing.Point(414, 135);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(124, 39);
+            this.pictureBox14.TabIndex = 42;
+            this.pictureBox14.TabStop = false;
+            // 
+            // txtMoth
+            // 
+            this.txtMoth.AccessibleDescription = "";
+            this.txtMoth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
+            this.txtMoth.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMoth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMoth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
+            this.txtMoth.Location = new System.Drawing.Point(277, 145);
+            this.txtMoth.Margin = new System.Windows.Forms.Padding(5);
+            this.txtMoth.Name = "txtMoth";
+            this.txtMoth.Size = new System.Drawing.Size(100, 19);
+            this.txtMoth.TabIndex = 39;
+            this.txtMoth.Text = "Tháng";
+            this.txtMoth.Click += new System.EventHandler(this.txtMoth_Click);
+            this.txtMoth.Leave += new System.EventHandler(this.txtMoth_Leave);
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
+            this.pictureBox13.Location = new System.Drawing.Point(265, 135);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(124, 39);
+            this.pictureBox13.TabIndex = 40;
+            this.pictureBox13.TabStop = false;
             // 
             // button1
             // 
@@ -1065,7 +1165,7 @@
             this.btnXemDT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnXemDT.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXemDT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
-            this.btnXemDT.Location = new System.Drawing.Point(749, 131);
+            this.btnXemDT.Location = new System.Drawing.Point(749, 135);
             this.btnXemDT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXemDT.Name = "btnXemDT";
             this.btnXemDT.Size = new System.Drawing.Size(99, 39);
@@ -1117,7 +1217,6 @@
             dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataHoaDonDT.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.dataHoaDonDT.RowHeadersVisible = false;
             dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1128,6 +1227,7 @@
             this.dataHoaDonDT.Size = new System.Drawing.Size(945, 352);
             this.dataHoaDonDT.StandardTab = true;
             this.dataHoaDonDT.TabIndex = 36;
+            this.dataHoaDonDT.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataHoaDonDT_RowPostPaint);
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -1145,7 +1245,7 @@
             this.txtYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
-            this.txtYear.Location = new System.Drawing.Point(132, 141);
+            this.txtYear.Location = new System.Drawing.Point(132, 145);
             this.txtYear.Margin = new System.Windows.Forms.Padding(5);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(100, 19);
@@ -1157,7 +1257,7 @@
             // pictureBox11
             // 
             this.pictureBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
-            this.pictureBox11.Location = new System.Drawing.Point(120, 131);
+            this.pictureBox11.Location = new System.Drawing.Point(120, 135);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(124, 39);
             this.pictureBox11.TabIndex = 35;
@@ -1185,101 +1285,38 @@
             this.textBox5.TabIndex = 29;
             this.textBox5.Text = "Quản lý doanh thu";
             // 
-            // txtMoth
+            // label1
             // 
-            this.txtMoth.AccessibleDescription = "";
-            this.txtMoth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
-            this.txtMoth.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMoth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMoth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
-            this.txtMoth.Location = new System.Drawing.Point(277, 141);
-            this.txtMoth.Margin = new System.Windows.Forms.Padding(5);
-            this.txtMoth.Name = "txtMoth";
-            this.txtMoth.Size = new System.Drawing.Size(100, 19);
-            this.txtMoth.TabIndex = 39;
-            this.txtMoth.Text = "Tháng";
-            this.txtMoth.Click += new System.EventHandler(this.txtMoth_Click);
-            this.txtMoth.Leave += new System.EventHandler(this.txtMoth_Leave);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.label1.Location = new System.Drawing.Point(262, 114);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 18);
+            this.label1.TabIndex = 46;
+            this.label1.Text = "Ví dụ: 06";
             // 
-            // pictureBox13
+            // label2
             // 
-            this.pictureBox13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
-            this.pictureBox13.Location = new System.Drawing.Point(265, 131);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(124, 39);
-            this.pictureBox13.TabIndex = 40;
-            this.pictureBox13.TabStop = false;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.label2.Location = new System.Drawing.Point(117, 114);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 18);
+            this.label2.TabIndex = 47;
+            this.label2.Text = "Ví dụ: 2021";
             // 
-            // txtDay
+            // label3
             // 
-            this.txtDay.AccessibleDescription = "";
-            this.txtDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
-            this.txtDay.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
-            this.txtDay.Location = new System.Drawing.Point(426, 141);
-            this.txtDay.Margin = new System.Windows.Forms.Padding(5);
-            this.txtDay.Name = "txtDay";
-            this.txtDay.Size = new System.Drawing.Size(100, 19);
-            this.txtDay.TabIndex = 41;
-            this.txtDay.Text = "Ngày";
-            this.txtDay.Click += new System.EventHandler(this.txtDay_Click);
-            this.txtDay.Leave += new System.EventHandler(this.txtDay_Leave);
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
-            this.pictureBox14.Location = new System.Drawing.Point(414, 131);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(124, 39);
-            this.pictureBox14.TabIndex = 42;
-            this.pictureBox14.TabStop = false;
-            // 
-            // cbbFilter
-            // 
-            this.cbbFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.cbbFilter.DropDownHeight = 160;
-            this.cbbFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cbbFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
-            this.cbbFilter.FormattingEnabled = true;
-            this.cbbFilter.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.cbbFilter.IntegralHeight = false;
-            this.cbbFilter.ItemHeight = 20;
-            this.cbbFilter.Items.AddRange(new object[] {
-            "Năm",
-            "Ngày",
-            "Tháng"});
-            this.cbbFilter.Location = new System.Drawing.Point(565, 138);
-            this.cbbFilter.Name = "cbbFilter";
-            this.cbbFilter.Size = new System.Drawing.Size(154, 28);
-            this.cbbFilter.Sorted = true;
-            this.cbbFilter.TabIndex = 43;
-            this.cbbFilter.Text = "Năm";
-            // 
-            // txtDTF
-            // 
-            this.txtDTF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
-            this.txtDTF.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDTF.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDTF.ForeColor = System.Drawing.Color.White;
-            this.txtDTF.Location = new System.Drawing.Point(254, 199);
-            this.txtDTF.Name = "txtDTF";
-            this.txtDTF.ReadOnly = true;
-            this.txtDTF.Size = new System.Drawing.Size(512, 55);
-            this.txtDTF.TabIndex = 45;
-            this.txtDTF.Text = "0 VNĐ";
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Image = global::OOP_Desktop.Properties.Resources.money;
-            this.pictureBox15.InitialImage = global::OOP_Desktop.Properties.Resources.money;
-            this.pictureBox15.Location = new System.Drawing.Point(176, 199);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(63, 58);
-            this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox15.TabIndex = 44;
-            this.pictureBox15.TabStop = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(220)))), ((int)(((byte)(255)))));
+            this.label3.Location = new System.Drawing.Point(413, 114);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 18);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "Ví dụ: 20";
             // 
             // FormQuanLy
             // 
@@ -1287,10 +1324,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.pnlDoanhThu);
             this.Controls.Add(this.pnlQlySach);
             this.Controls.Add(this.pnlQlyNV);
             this.Controls.Add(this.pnlQlyKH);
-            this.Controls.Add(this.pnlDoanhThu);
             this.Controls.Add(this.pnlDashboard);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnQlyDoanhThu);
@@ -1328,12 +1365,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlDoanhThu.ResumeLayout(false);
             this.pnlDoanhThu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataHoaDonDT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1406,6 +1443,9 @@
         internal System.Windows.Forms.ComboBox cbbFilter;
         private System.Windows.Forms.TextBox txtDTF;
         private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
