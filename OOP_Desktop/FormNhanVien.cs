@@ -317,15 +317,19 @@ namespace OOP_Desktop
         #region Xóa SP
         private void btnXoaSP_Click(object sender, EventArgs e)
         {
-            dataHoaDon.Rows.RemoveAt(dataHoaDon.CurrentRow.Index);
-            if (dataHoaDon.Rows.Count < 1)
+            if (dataHoaDon.Rows.Count > 0)
             {
-                txtThanhTien.Text = "0 VNĐ";
+                dataHoaDon.Rows.RemoveAt(dataHoaDon.CurrentRow.Index);
+                if (dataHoaDon.Rows.Count < 1)
+                {
+                    txtThanhTien.Text = "0 VNĐ";
+                }
+                else
+                {
+                    TinhLaiTien();
+                }
             }
-            else
-            {
-                TinhLaiTien();
-            }
+            else MessageBox.Show("Không có sản phẩm nào để xóa");
 
         }
         #endregion
