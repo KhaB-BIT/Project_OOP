@@ -76,7 +76,7 @@ namespace OOP_Desktop
 
         private void txtSoDienThoai_Click(object sender, EventArgs e)
         {
-            if (txtSoDienThoai.Text == "Nhập số điện thoại khách hàng*") txtSoDienThoai.Text = "";
+            txtSoDienThoai.Text = "";
         }
         private void txtSoDienThoai_Leave(object sender, EventArgs e)
         {
@@ -399,6 +399,8 @@ namespace OOP_Desktop
                     hi = null;
                     dataHoaDon.DataSource = null;
                     dataHoaDon.Columns.RemoveAt(0);
+                    txtMaKH.Text = "";
+                    txtTenKH.Text = "";
                     TinhLaiTien();
                     GetMaHD();
                     MessageBox.Show("Thao tác được thực hiện");
@@ -465,6 +467,12 @@ namespace OOP_Desktop
                 main = SQLConnector.MotGiaTri("Select MaDH from dbo.DonHang where PTTT=N'" + txtMaNV.Text + "GetBillCode'");
                 txtMaHD.Text = main.ToString();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtMaKH.Text = "";
+            txtTenKH.Text = "";
         }
     }
 }
