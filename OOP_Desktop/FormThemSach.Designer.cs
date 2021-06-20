@@ -67,12 +67,12 @@
             this.txtSeries.AccessibleDescription = "";
             this.txtSeries.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtSeries.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSeries.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSeries.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSeries.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtSeries.Location = new System.Drawing.Point(104, 112);
             this.txtSeries.Margin = new System.Windows.Forms.Padding(5);
             this.txtSeries.Name = "txtSeries";
-            this.txtSeries.Size = new System.Drawing.Size(221, 20);
+            this.txtSeries.Size = new System.Drawing.Size(221, 19);
             this.txtSeries.TabIndex = 2;
             this.txtSeries.Text = "Nhập Series";
             this.txtSeries.Click += new System.EventHandler(this.txtSeries_Click);
@@ -92,12 +92,12 @@
             this.txtSoLuong.AccessibleDescription = "";
             this.txtSoLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtSoLuong.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSoLuong.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoLuong.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoLuong.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtSoLuong.Location = new System.Drawing.Point(422, 186);
             this.txtSoLuong.Margin = new System.Windows.Forms.Padding(5);
             this.txtSoLuong.Name = "txtSoLuong";
-            this.txtSoLuong.Size = new System.Drawing.Size(221, 20);
+            this.txtSoLuong.Size = new System.Drawing.Size(221, 19);
             this.txtSoLuong.TabIndex = 5;
             this.txtSoLuong.Text = "Nhập số lượng";
             this.txtSoLuong.Click += new System.EventHandler(this.txtSoLuong_Click);
@@ -117,12 +117,12 @@
             this.txtTenSach.AccessibleDescription = "";
             this.txtTenSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtTenSach.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTenSach.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenSach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtTenSach.Location = new System.Drawing.Point(104, 186);
             this.txtTenSach.Margin = new System.Windows.Forms.Padding(5);
             this.txtTenSach.Name = "txtTenSach";
-            this.txtTenSach.Size = new System.Drawing.Size(221, 20);
+            this.txtTenSach.Size = new System.Drawing.Size(221, 19);
             this.txtTenSach.TabIndex = 4;
             this.txtTenSach.Text = "Nhập tên sách";
             this.txtTenSach.Click += new System.EventHandler(this.txtTenSach_Click);
@@ -142,12 +142,12 @@
             this.txtGiaBan.AccessibleDescription = "";
             this.txtGiaBan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtGiaBan.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGiaBan.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGiaBan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtGiaBan.Location = new System.Drawing.Point(422, 261);
             this.txtGiaBan.Margin = new System.Windows.Forms.Padding(5);
             this.txtGiaBan.Name = "txtGiaBan";
-            this.txtGiaBan.Size = new System.Drawing.Size(221, 20);
+            this.txtGiaBan.Size = new System.Drawing.Size(221, 19);
             this.txtGiaBan.TabIndex = 7;
             this.txtGiaBan.Text = "Nhập giá bán";
             this.txtGiaBan.Click += new System.EventHandler(this.txtGiaBan_Click);
@@ -167,12 +167,12 @@
             this.txtGiaNhap.AccessibleDescription = "";
             this.txtGiaNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.txtGiaNhap.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGiaNhap.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiaNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGiaNhap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.txtGiaNhap.Location = new System.Drawing.Point(104, 261);
             this.txtGiaNhap.Margin = new System.Windows.Forms.Padding(5);
             this.txtGiaNhap.Name = "txtGiaNhap";
-            this.txtGiaNhap.Size = new System.Drawing.Size(221, 20);
+            this.txtGiaNhap.Size = new System.Drawing.Size(221, 19);
             this.txtGiaNhap.TabIndex = 6;
             this.txtGiaNhap.Text = "Nhập giá nhập";
             this.txtGiaNhap.Click += new System.EventHandler(this.txtGiaNhap_Click);
@@ -192,15 +192,15 @@
             this.cbbTheLoai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(31)))), ((int)(((byte)(45)))));
             this.cbbTheLoai.DropDownHeight = 160;
             this.cbbTheLoai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbTheLoai.Font = new System.Drawing.Font("r0c0i Linotte", 12F);
+            this.cbbTheLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cbbTheLoai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.cbbTheLoai.FormattingEnabled = true;
             this.cbbTheLoai.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.cbbTheLoai.IntegralHeight = false;
-            this.cbbTheLoai.ItemHeight = 19;
+            this.cbbTheLoai.ItemHeight = 20;
             this.cbbTheLoai.Location = new System.Drawing.Point(407, 103);
             this.cbbTheLoai.Name = "cbbTheLoai";
-            this.cbbTheLoai.Size = new System.Drawing.Size(250, 27);
+            this.cbbTheLoai.Size = new System.Drawing.Size(250, 28);
             this.cbbTheLoai.Sorted = true;
             this.cbbTheLoai.TabIndex = 3;
             this.cbbTheLoai.Text = "Chọn thể loại sách";
@@ -208,11 +208,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("r0c0i Linotte", 21.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(52, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(282, 34);
+            this.label1.Size = new System.Drawing.Size(292, 33);
             this.label1.TabIndex = 39;
             this.label1.Text = "Nhập thông tin sách";
             // 
@@ -222,7 +222,7 @@
             this.btnThem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnThem.FlatAppearance.BorderSize = 0;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThem.Font = new System.Drawing.Font("r0c0i Linotte", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.Location = new System.Drawing.Point(210, 325);
             this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -239,7 +239,7 @@
             this.btnHuy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnHuy.FlatAppearance.BorderSize = 0;
             this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHuy.Font = new System.Drawing.Font("r0c0i Linotte", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHuy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(231)))), ((int)(((byte)(192)))));
             this.btnHuy.Location = new System.Drawing.Point(384, 325);
             this.btnHuy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -256,7 +256,7 @@
             this.btnThemTL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnThemTL.FlatAppearance.BorderSize = 0;
             this.btnThemTL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThemTL.Font = new System.Drawing.Font("r0c0i Linotte", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemTL.ForeColor = System.Drawing.Color.White;
             this.btnThemTL.Location = new System.Drawing.Point(540, 135);
             this.btnThemTL.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -269,7 +269,7 @@
             // 
             // FormThemSach
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(8)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(764, 399);
@@ -289,7 +289,7 @@
             this.Controls.Add(this.txtSeries);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox7);
-            this.Font = new System.Drawing.Font("r0c0i Linotte", 8.25F, System.Drawing.FontStyle.Bold);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormThemSach";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -318,10 +318,10 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.TextBox txtGiaNhap;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ComboBox cbbTheLoai;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Button btnThemTL;
+        internal System.Windows.Forms.ComboBox cbbTheLoai;
     }
 }

@@ -21,6 +21,17 @@ namespace OOP_Desktop
             InitializeComponent();
             this.formDangNhap = fdn;
             this.SQLConnector = fdn.SQLConnector;
+
+            //Thời gian lập hóa đơn
+            DateTime date = DateTime.Now;
+            txtDate.Text = date.ToString("yyyy-MM-dd");
+
+            //Thông tin nhân viên
+            txtMaNV.Text = SQLConnector.MotGiaTri("Select MaNV from dbo.NhanVien where TaiKhoan =N'" + formDangNhap.txtTaiKhoan.Text + "'").ToString();
+            txtTenNV.Text = SQLConnector.MotGiaTri("Select TenNV from dbo.NhanVien where TaiKhoan =N'" + formDangNhap.txtTaiKhoan.Text + "'").ToString();
+
+            //Get mã hóa đơn
+            GetMaHD();
         }
 
         FormDangNhap formDangNhap;
@@ -48,18 +59,6 @@ namespace OOP_Desktop
             BarCodeFunc();
             #endregion
             
-            //Thời gian lập hóa đơn
-            DateTime date = DateTime.Now;
-            txtDate.Text = date.ToString("yyyy-MM-dd");
-
-            //Thông tin nhân viên
-            txtMaNV.Text = SQLConnector.MotGiaTri("Select MaNV from dbo.NhanVien where TaiKhoan =N'" + formDangNhap.txtTaiKhoan.Text + "'").ToString();
-            txtTenNV.Text = SQLConnector.MotGiaTri("Select TenNV from dbo.NhanVien where TaiKhoan =N'" + formDangNhap.txtTaiKhoan.Text+"'").ToString();
-
-            //Get mã hóa đơn
-            GetMaHD();
-
-
         }
 
 
@@ -344,6 +343,11 @@ namespace OOP_Desktop
             TinhLaiTien();
 
         }
+        private void dataHoaDon_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            CellPrivous[1] = e.RowIndex;
+            CellPrivous[2] = e.ColumnIndex;
+        }
         #endregion
 
         #region Thành tiền
@@ -381,7 +385,10 @@ namespace OOP_Desktop
                         + "',PTTT=N'" + "Tiền mặt" + "',MaKH=N'" + txtMaKH.Text + "',MaNV=N'" + txtMaNV.Text + "' where PTTT=N'"+ txtMaNV.Text + "GetBillCode'");
                     for (int i = 0; i < dataHoaDon.Rows.Count; i++)
                     {
-                        string query = "UPDATE dbo.SanPham SET Soluong = Soluong - " + dataHoaDon.Rows[i].Cells[3].Value.ToString()
+                        string query = "Insert dbo.ChiTietDonHang values (N'"+txtMaHD.Text+"',N'"+ dataHoaDon.Rows[i].Cells[0].Value.ToString() 
+                            + "',N'"+ dataHoaDon.Rows[i].Cells[3].Value.ToString() + "',N'"+ dataHoaDon.Rows[i].Cells[2].Value.ToString() + "')";
+                        SQLConnector.ExcuteQuery(query);
+                        query = "UPDATE dbo.SanPham SET Soluong = Soluong - " + dataHoaDon.Rows[i].Cells[3].Value.ToString()
                             + " WHERE MaSach = N'" + dataHoaDon.Rows[i].Cells[0].Value.ToString() + "'";
                         SQLConnector.ExcuteQuery(query);
                     }
@@ -440,17 +447,7 @@ namespace OOP_Desktop
             DateTime date = DateTime.Now;
             txtDate.Text = date.ToString("yyyy-MM-dd");
         }
-
-
-
-        private void dataHoaDon_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            CellPrivous[1] = e.RowIndex;
-            CellPrivous[2] = e.ColumnIndex;
-        }
-
-
-
+        //Get mã hóa đơn
         private void GetMaHD()
         {
             object main = SQLConnector.MotGiaTri("Select MaDH from dbo.DonHang where PTTT=N'" + txtMaNV.Text + "GetBillCode'");
@@ -464,11 +461,6 @@ namespace OOP_Desktop
                 main = SQLConnector.MotGiaTri("Select MaDH from dbo.DonHang where PTTT=N'" + txtMaNV.Text + "GetBillCode'");
                 txtMaHD.Text = main.ToString();
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

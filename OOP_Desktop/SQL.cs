@@ -69,15 +69,15 @@ namespace OOP_Desktop
         }
 
 
-        public double Count(string TableName)
+        public object Count(string TableName)
         {
-            double data = -1;
+            object data = null;
             string query = "select COUNT(*) from " + TableName;
             using (SqlConnection connection = new SqlConnection(this.sQLlink))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
-                data = (int)command.ExecuteScalar();
+                data = command.ExecuteScalar();
                 connection.Close();
             }
             return data;

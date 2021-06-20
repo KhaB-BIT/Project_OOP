@@ -21,10 +21,12 @@ namespace OOP_Desktop
             cbbTheLoai.DisplayMember = "TenTL";
         }
 
-        FormQuanLy FormPrivious;
+        internal FormQuanLy FormPrivious;
 
         private void btnThemTL_Click(object sender, EventArgs e)
         {
+            ThemTheLoai ttl = new ThemTheLoai(this);
+            ttl.Show();
             
         }
 

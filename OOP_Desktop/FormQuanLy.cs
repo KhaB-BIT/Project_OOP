@@ -20,7 +20,12 @@ namespace OOP_Desktop
             InitializeComponent();
             formQlySPLoad();
             this.formDangNhap = fdn;
-            this.SQLConnector = fdn.SQLConnector;
+            this.SQLConnector = formDangNhap.SQLConnector;
+            object check = SQLConnector.Count("dbo.KhachHang");
+            if (check != null)
+                txtKhachHang.Text = check.ToString();
+            else txtKhachHang.Text = "-";
+            txtDoanhThu.Text = "VNĐ";
         }
 
         //Khai báo biến--------------------------------------
@@ -171,9 +176,7 @@ namespace OOP_Desktop
         //Các event chức năng của Form-------------------------
         public void formQlySPLoad()
         {
-            txtKhachHang.Text = SQLConnector.Count("dbo.KhachHang").ToString();
-            txtDoanhThu.Text = "VNĐ";
-            //txtCheck.Text = Sach.DeleteQuery("MS001");
+
         }
 
         //Event khi chuyển giữa các chức năng
@@ -512,6 +515,22 @@ namespace OOP_Desktop
             Application.Exit();
         }
 
+        private void btnChiTietSach_Click(object sender, EventArgs e)
+        {
+            FormDetailSach dtS = new FormDetailSach(this);
+            dtS.Show();
+        }
 
+        private void btnDetailKH_Click(object sender, EventArgs e)
+        {
+            FormDetailKH dtS = new FormDetailKH(this);
+            dtS.Show();
+        }
+
+        private void btnDetailNV_Click(object sender, EventArgs e)
+        {
+            FormDetailNV dtS = new FormDetailNV(this);
+            dtS.Show();
+        }
     }
 }
