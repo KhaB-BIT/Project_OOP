@@ -49,5 +49,10 @@ namespace OOP_Desktop
         {
             if (formDangNhap.Enabled == false) Application.Exit();
         }
+
+        private void txtDataSource_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
